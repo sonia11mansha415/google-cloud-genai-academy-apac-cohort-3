@@ -92,30 +92,122 @@ The Streamlit sidebar also reads the live Firestore collection, so changes to th
 ## 🏗️ Final Architecture
 
 ```mermaid
-flowchart LR
-    U[Customer] --> S[Streamlit UI]
-    S --> A[ADK LlmAgent]
-    A --> G[Gemini]
-    A --> T[get_menu query tool]
-    T --> E[text-embedding-005]
-    E --> F[(Firestore Vector Search)]
-    F --> T
-    T --> A
-    A --> S
-    F -. live menu .-> S
-    S -. deployed on .-> C[Cloud Run]
-    C -. runtime identity .-> I[Dedicated Service Account]
+%%{init: {"themeVariables": {"fontSize": "27px"}, "flowchart": {"nodeSpacing": 50, "rankSpacing": 60}}}%%
 
-    classDef user fill:#0B57D0,stroke:#8AB4F8,color:#fff,stroke-width:2px;
-    classDef app fill:#063970,stroke:#00B8D9,color:#fff,stroke-width:2px;
-    classDef model fill:#311B92,stroke:#7C4DFF,color:#fff,stroke-width:2px;
-    classDef data fill:#1B5E20,stroke:#34A853,color:#fff,stroke-width:2px;
-    classDef identity fill:#713F12,stroke:#FBBC04,color:#fff,stroke-width:2px;
+flowchart LR
+
+    %% =====================================================
+    %% USER + CLOUD RUNTIME
+    %% =====================================================
+    subgraph ACCESS[" "]
+        direction TB
+
+        AH["🌐 USER + RUNTIME"]
+
+        U["👤 Customer"]
+        S["🖥️ Streamlit UI"]
+
+        C["☁️ Cloud Run"]
+        I["🔑 Service Account"]
+
+        U ==> S
+        S -.-> C
+        C -.-> I
+    end
+
+
+    %% =====================================================
+    %% AI ORCHESTRATION
+    %% =====================================================
+    subgraph AI[" "]
+        direction TB
+
+        BH["🧠 AI ORCHESTRATION"]
+
+        A["🤖 ADK LlmAgent"]
+        G["✨ Gemini"]
+
+        A <==> G
+    end
+
+
+    %% =====================================================
+    %% RETRIEVAL + VECTOR SEARCH
+    %% =====================================================
+    subgraph DATA[" "]
+        direction TB
+
+        CH["🔎 RETRIEVAL + SEARCH"]
+
+        T["🛠️ get_menu<br/>Query Tool"]
+
+        E["🧬 text-embedding-005"]
+
+        F[("🗄️ Firestore<br/>Vector Search")]
+
+        T ==> E
+        E ==> F
+        F -.-> T
+    end
+
+
+    %% =====================================================
+    %% MAIN APPLICATION FLOW
+    %% =====================================================
+    S <==> A
+    A <==> T
+
+
+    %% =====================================================
+    %% LARGE PREMIUM TYPOGRAPHY
+    %% =====================================================
+    classDef header fill:#111827,stroke:#f8fafc,stroke-width:3px,color:#ffffff,font-size:29px;
+
+    classDef user fill:#172554,stroke:#60a5fa,stroke-width:4px,color:#ffffff,font-size:27px;
+    classDef ui fill:#083344,stroke:#22d3ee,stroke-width:4px,color:#ffffff,font-size:27px;
+
+    classDef agent fill:#312e81,stroke:#a78bfa,stroke-width:4px,color:#ffffff,font-size:27px;
+    classDef model fill:#581c87,stroke:#e879f9,stroke-width:4px,color:#ffffff,font-size:27px;
+
+    classDef tool fill:#134e4a,stroke:#2dd4bf,stroke-width:4px,color:#ffffff,font-size:27px;
+    classDef embedding fill:#3b0764,stroke:#c084fc,stroke-width:4px,color:#ffffff,font-size:27px;
+    classDef database fill:#14532d,stroke:#4ade80,stroke-width:4px,color:#ffffff,font-size:27px;
+
+    classDef cloud fill:#0c4a6e,stroke:#38bdf8,stroke-width:4px,color:#ffffff,font-size:27px;
+    classDef identity fill:#713f12,stroke:#fbbf24,stroke-width:4px,color:#ffffff,font-size:27px;
+
+
+    %% =====================================================
+    %% APPLY STYLES
+    %% =====================================================
+    class AH,BH,CH header;
+
     class U user;
-    class S,A,C app;
-    class G,E model;
-    class T,F data;
+    class S ui;
+
+    class A agent;
+    class G model;
+
+    class T tool;
+    class E embedding;
+    class F database;
+
+    class C cloud;
     class I identity;
+
+
+    %% =====================================================
+    %% CONTAINERS
+    %% =====================================================
+    style ACCESS fill:#0d1117,stroke:#334155,stroke-width:2px
+    style AI fill:#0d1117,stroke:#7c3aed,stroke-width:2px
+    style DATA fill:#0d1117,stroke:#10b981,stroke-width:2px
+
+
+    %% =====================================================
+    %% LARGE CONNECTORS
+    %% =====================================================
+    linkStyle default stroke:#cbd5e1,stroke-width:5px;
 ```
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
