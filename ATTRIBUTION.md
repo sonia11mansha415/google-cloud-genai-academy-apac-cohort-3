@@ -2,9 +2,7 @@
 
 # Attribution & Source Integrity
 
-This repository is a **personal learning portfolio by Sonia Mansha** documenting hands-on work completed as part of **Google Cloud Gen AI Academy APAC — Cohort 3**.
-
-It is **not an official Google Cloud repository** and does not claim ownership of Google training material.
+This repository is a **personal learning portfolio of Sonia Mansha** documenting hands-on work completed as part of **Google Cloud Gen AI Academy APAC — Cohort 3**.
 
 ## Official learning sources
 
@@ -22,6 +20,5 @@ The Academy codelabs provide the learning path. This repository records my own e
 - implementation organization and architecture notes;
 - deployment and validation evidence;
 - security and trust-boundary observations;
-- troubleshooting decisions that are worth preserving;
-- concise first-person learning reflections;
-- sanitized public documentation suitable for a technical portfolio.
+- learning reflections;
+- public documentation.
