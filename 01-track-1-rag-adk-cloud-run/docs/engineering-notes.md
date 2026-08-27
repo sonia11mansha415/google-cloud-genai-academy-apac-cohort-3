@@ -1,8 +1,10 @@
 <a id="top"></a>
 
-# 🧠 Track 1 Engineering Notes
-
 [🏠 Academy Home](../../README.md) · [☕ Track 1](../README.md) · **Engineering Notes**
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
+# 🧠 Track 1 Engineering Notes
 
 ## 1. Start with a controlled source of truth
 
@@ -14,61 +16,59 @@ That changes the design question from:
 
 into:
 
-> "Can the agent recommend only what the controlled menu actually contains, while respecting the product metadata that matters to the user?"
+> "Can the agent recommend only what the controlled menu contains while respecting the product metadata that matters to the user?"
 
 The menu tool becomes the grounding boundary.
 
-## 2. Tool-backed grounding instead of stuffing data into instructions
+## 2. Keep task data behind a tool
 
-Keeping data behind a tool makes the application structure clearer. The model instructions describe behavior; the tool provides current task data. This separation becomes increasingly important as a dataset grows beyond a handful of tutorial records.
+The model instructions describe behavior; the tool supplies the menu data. This separation makes the application easier to reason about and keeps the source of truth distinct from the prompt.
 
 ## 3. The UI is part of the agent system
 
-Streamlit is not only decoration. It manages:
+Streamlit manages:
 
-- the chat input/output surface;
+- chat input and output;
 - active-session conversation state;
-- the visible menu context;
+- visible menu context;
 - error feedback;
-- the interaction pattern that users actually experience.
+- the interaction pattern the user experiences.
 
-One limitation is important: browser-session state is not durable memory. Closing or resetting the session is different from persisting a user conversation in a production data store.
+The browser session provides conversation continuity during the active session; it is not durable long-term memory.
 
 ## 4. Cloud Run changes the engineering context
 
-Local code becomes a service with a runtime identity, build process, environment variables, API dependencies, network endpoint, and operational lifecycle.
+Local application code becomes a service with a runtime identity, build process, environment configuration, API dependencies, network endpoint, and operational lifecycle.
 
-The deployment therefore has to answer more questions than "does the Python file run?"
+The deployment therefore has to answer more than "does the Python file run?"
 
 - Is the correct project selected?
 - Are the required APIs enabled?
 - Can the runtime identity call the model service?
 - Does the application start on the port Cloud Run provides?
-- Does the deployed service behave the same way as the local implementation?
+- Does the deployed service behave like the working application?
 
-## 5. Least privilege is visible in a tutorial too
+## 5. Least privilege is visible in the architecture
 
-The codelab uses a dedicated service account for the Cloud Run workload instead of defaulting to a broadly privileged runtime identity. That is a small architectural choice with a large security lesson: **the agent's capability should not automatically become the project's capability**.
+The codelab uses a dedicated service account for the Cloud Run workload. That reinforces a simple security principle: **the agent's capability should not automatically become the project's capability**.
 
-## 6. Testing the rule matters more than admiring the response
+## 6. Test the rule, not the fluency
 
-A grounded agent should be challenged in ways that try to break its contract:
+A grounded agent should be challenged with cases that try to break its contract:
 
-- ask for something the menu does contain;
-- ask for something it does not contain;
+- ask for something the menu contains;
+- ask for something the menu does not contain;
 - introduce an allergen constraint;
-- verify the deployed version, not only local code.
+- verify the deployed service, not only the local application.
 
-The negative test is especially important because a fluent invented answer can look convincing even when it violates the application's source-of-truth boundary.
+The negative test matters because a fluent invented answer can still violate the source-of-truth boundary.
 
-## 7. What I want to carry into later tracks
+## 7. A pattern I can carry into later tracks
 
-Track 1 gives me a reusable habit for the rest of the Academy:
+**Define the boundary → connect the tool/data source → deploy → test the boundary → preserve evidence.**
 
-**define the boundary → connect the tool/data source → deploy → test the boundary → preserve evidence.**
+Track 2 extends that pattern into structured BigQuery data. Track 3 extends it into sandboxed execution and operational changes where human approval becomes more important.
 
-Track 2 extends that idea into structured enterprise data through BigQuery MCP. Track 3 extends it into code execution and operational changes, where human control becomes even more important.
-
----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 [← Track 1](../README.md) · [Testing & Results →](./testing-and-results.md) · [Back to top](#top)

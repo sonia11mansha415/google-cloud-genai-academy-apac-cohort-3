@@ -14,25 +14,27 @@
 
 </div>
 
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
 # ☕ Track 1 — RAG AI Barista on Cloud Run
 
 ## 🎯 What I Am Building
 
-Track 1 is a customer-facing AI agent exercise built around a coffee-shop scenario. The agent should make useful recommendations **without inventing products that are not in the menu**, respect allergen information, maintain a conversational UI, and run as a deployed Cloud Run service.
+Track 1 focuses on a customer-facing AI Barista that recommends products from a controlled coffee-shop menu. The agent must stay grounded in the available menu, respect product metadata such as allergens, maintain a conversational interface, and run as a deployed Cloud Run service.
 
-The official codelab is the implementation source of truth:
+**Official codelab:** [Deploy a RAG AI Agent in Streamlit using Google ADK and Cloud Run](https://codelabs.developers.google.com/codelabs/cloud-run/build-streamlit-rag-agent-google-adk-cloud-run)
 
-**[Deploy a RAG AI Agent in Streamlit using Google ADK and Cloud Run](https://codelabs.developers.google.com/codelabs/cloud-run/build-streamlit-rag-agent-google-adk-cloud-run)**
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🧩 Problem → Solution
 
 ### Problem
 
-A general LLM can produce plausible recommendations that are not connected to the shop's actual products. That is unacceptable for a menu-driven assistant because the response must stay inside a known product catalog and must not ignore allergen constraints.
+A general LLM can produce plausible recommendations that are not connected to the shop's actual products. A menu-driven assistant needs a controlled source of truth and must not invent unavailable items or ignore allergen constraints.
 
 ### Solution
 
-The Track 1 design connects an ADK agent to a controlled menu tool. The model uses that source as grounding context, while Streamlit provides the chat interface and Cloud Run provides the managed deployment target.
+The ADK agent connects to a menu tool that supplies the product data used for recommendations. Gemini handles the conversational reasoning, Streamlit provides the chat experience, and Cloud Run hosts the application.
 
 ```mermaid
 flowchart LR
@@ -40,7 +42,7 @@ flowchart LR
     S --> A[ADK Agent]
     A --> G[Gemini]
     A --> T[get_menu tool]
-    T --> M[(menu data)]
+    T --> M[(Menu Data)]
     G --> A
     A --> S
     S --> U
@@ -56,78 +58,58 @@ flowchart LR
     class T,M data;
 ```
 
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
 ## 🧱 Build Path
 
-| Stage | What it establishes | Public status |
-|---|---|---|
-| Project + API setup | Correct project context and required managed services | ✅ Executed as part of active Track 1 work |
-| Menu grounding source | Controlled product data for the agent | 🟡 Source capture pending |
-| ADK agent | Tool-backed recommendation logic | 🟡 Source capture pending |
-| Streamlit application | Conversation and menu presentation layer | 🟡 Source capture pending |
-| Dedicated Cloud Run identity | Runtime identity with focused model-access permissions | 🟡 Evidence curation pending |
-| Cloud Run deployment | Public managed service | 🟡 Final proof to be curated |
-| RAG behavior tests | In-menu, out-of-menu, and allergen-aware checks | 🟡 Final evidence to be curated |
+| Stage | Engineering purpose |
+|---|---|
+| Project + API setup | Prepare the Google Cloud services required by the application |
+| Menu grounding source | Provide the controlled product data used by the agent |
+| ADK agent | Define the model instructions and menu tool behavior |
+| Streamlit application | Present the conversation and menu experience |
+| Cloud Run identity | Run the service with a dedicated workload identity |
+| Cloud Run deployment | Publish the application as a managed service |
+| Behavioral validation | Test grounding, unavailable products, allergens, and deployed behavior |
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🔐 Security Notes
 
-A useful part of this codelab is that deployment is not treated as "give the app everything and hope for the best." The intended Cloud Run service uses a dedicated service account and the model-access role it needs rather than relying on a broadly privileged default runtime identity.
+The Cloud Run workload uses a dedicated service account with the model access required by the application rather than relying on a broadly privileged default runtime identity.
 
-For the public repository I also keep the following boundaries:
+The grounding tool also creates an important data boundary: the model can reason about the menu, but the menu remains the source of truth for the product catalog.
 
-- no credential files or API keys in source control;
-- no billing/project-account administration screenshots;
-- no unnecessary project numbers or participant-account identifiers;
-- no private environment files;
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🧪 Validation Strategy
 
-The strongest Track 1 tests are behavioral, not cosmetic.
-
-| Test | What it is checking | Expected behavior |
+| Test | What it checks | Expected behavior |
 |---|---|---|
-| Strong + warm recommendation | Grounded selection | Recommend a suitable item that actually exists in the menu |
+| Strong + warm recommendation | Grounded selection | Recommend a suitable item that exists in the menu |
 | Out-of-menu request | Hallucination resistance | Decline or redirect instead of inventing a product |
-| Lactose-intolerant request | Allergen awareness | Restrict recommendations to options without dairy conflict |
-| Conversation continuity | Session behavior | Preserve the active browser-session conversation while the session remains alive |
-| Cloud Run access | Deployment | App loads successfully from the deployed service URL |
+| Lactose-intolerant request | Allergen awareness | Restrict recommendations to options without a dairy conflict |
+| Conversation continuity | Session behavior | Preserve the active Streamlit conversation while the session remains alive |
+| Cloud Run access | Deployment | Load the working application from the deployed service URL |
 
-See [`docs/testing-and-results.md`](./docs/testing-and-results.md) for the evidence-ready validation matrix.
+[Open the detailed testing matrix](./docs/testing-and-results.md)
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🧠 What This Track Is Teaching Me
 
-The most important shift for me is that **model quality is not only about fluent answers**. A useful agent needs an explicit source of truth, a controlled tool boundary, a deployable application layer, and tests that challenge the model to stay inside its rules.
+The most important shift for me is that **model quality is not only about fluent answers**. A useful agent needs a source of truth, a controlled tool boundary, a deployable application layer, and tests that challenge the model to stay inside its rules.
 
-A second lesson is operational: the application is more than the prompt. Runtime identity, APIs, environment variables, build behavior, session state, and Cloud Run configuration are all part of the system that makes the agent work.
-
-## 📂 Track 1 Workspace
-
-```text
-01-track-1-rag-adk-cloud-run/
-├── README.md
-├── src/
-│   └── README.md                 
-├── docs/
-│   ├── engineering-notes.md
-│   └── testing-and-results.md
-└── evidence/
-    ├── README.md
-    └── images/                   
-```
-
-### Why `src/` does not contain reconstructed code yet
-
-The working Track 1 files were created during the hands-on Cloud Shell execution. I want the public repository to preserve **actual implementation provenance**, so the source folder is intentionally waiting for a direct export from the working directory.
-
-That boundary is documented in [`src/README.md`](./src/README.md).
+The deployment also makes the wider system visible: runtime identity, APIs, environment configuration, build behavior, session state, and Cloud Run all affect whether the agent works reliably.
 
 ## 🔎 Detailed Documentation
 
 - [Engineering notes](./docs/engineering-notes.md)
-- [Testing & results matrix](./docs/testing-and-results.md)
+- [Testing & results](./docs/testing-and-results.md)
 - [Evidence index](./evidence/README.md)
-- [Source capture note](./src/README.md)
 
----
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 <div align="center">
 
