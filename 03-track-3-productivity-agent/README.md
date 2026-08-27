@@ -13,15 +13,19 @@
 
 </div>
 
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
 # ⚙️ Track 3 — Personal Productivity Agent on Cloud Run
 
-Official codelab: **[Run a personal agent on a Cloud Run service](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-personal-agent-coffee-shop)**
+**Official codelab:** [Run a personal agent on a Cloud Run service](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-personal-agent-coffee-shop)
 
 ## 🎯 Engineering Mission
 
-Build a personal AI assistant for a coffee-shop manager preparing for a high-demand weekend. The agent must analyze operational data, execute code inside a sandboxed environment, generate staffing/inventory recommendations, and **wait for explicit permission before writing operational TODOs back to the spreadsheet**.
+Build a personal AI assistant for a coffee-shop manager preparing for a high-demand weekend. The agent analyzes operational data, executes code inside a sandboxed environment, generates staffing and inventory recommendations, and waits for explicit approval before writing operational TODOs back to the spreadsheet.
 
-## 🏗️ Planned Architecture
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
+## 🏗️ Target Architecture
 
 ```mermaid
 flowchart LR
@@ -38,7 +42,6 @@ flowchart LR
     X --> D[(Google Sheet)]
     A -. deployed as .-> C[Cloud Run]
 
-    classDef user fill:#0B57D0,stroke:#8AB4F8,color:#fff,stroke-width:2px;
     classDef app fill:#063970,stroke:#00B8D9,color:#fff,stroke-width:2px;
     classDef safe fill:#1B5E20,stroke:#34A853,color:#fff,stroke-width:2px;
     classDef model fill:#311B92,stroke:#7C4DFF,color:#fff,stroke-width:2px;
@@ -47,20 +50,18 @@ flowchart LR
     class S,R,H,X,D safe;
 ```
 
-## 🔐 Security / Control Questions I Will Validate
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
-Track 3 is especially interesting from a DevSecOps perspective because the agent crosses from **analysis** into **action**.
+## 🔐 Security & Control Model
 
-I will document:
+- dedicated Cloud Run service identity;
+- spreadsheet access through the workload identity rather than a downloaded key file;
+- sandboxed code execution;
+- explicit human approval before operational write actions;
+- clear separation between analysis and mutation;
+- visible handling of WebSocket and operational errors.
 
-- the dedicated Cloud Run service identity;
-- spreadsheet access granted to the service identity rather than a key file;
-- the boundary between local execution and the production Cloud Run sandbox;
-- the point where the agent asks for human approval;
-- whether a write action can occur without that approval;
-- how WebSocket interaction and operational errors are surfaced to the user.
-
----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 <div align="center">
 
