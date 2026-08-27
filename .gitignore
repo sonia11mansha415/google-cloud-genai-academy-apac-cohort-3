@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+env.sh
+*.pem
+*.key
+*credentials*.json
+*service-account*.json
+application_default_credentials.json
+
+# Google / Firebase local state
+.gcloud/
+.firebase/
+.firebaserc
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary / generated
+*.log
+*.tmp
+*.bak
+coverage/
+dist/
+build/
+
+# Never publish private evidence exports
+private-evidence/
+private-screenshots/
