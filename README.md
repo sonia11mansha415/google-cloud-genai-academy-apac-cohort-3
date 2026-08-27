@@ -48,9 +48,9 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 | Track 1 — RAG + ADK + Cloud Run | 🟡 In progress | Active implementation workspace |
 | Track 2 — Gemini + BigQuery MCP | ⏳ Queued | Document only after execution begins |
 | Track 3 — Productivity Agent | ⏳ Queued | Document only after execution begins |
-| Mandatory Academy assessment | ⏳ Pending | Completion status only — no quiz content |
-| Track MCQs | ⏳ Pending | Completion status only — no quiz content |
-| Meet the Builders | ✅ Submitted | Public cohort update only; no separate repo folder |
+| Mandatory Academy assessment | ⏳ Pending | Completion status only |
+| Track MCQs | ⏳ Pending | Completion status only |
+| Meet the Builders | ✅ Submitted | Public cohort update only |
 | Ideathon | 🔐 Separate repository | Secure Personal Gemini Journal will be judge-focused and independent |
 
 
@@ -92,8 +92,6 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 <img src="./assets/branding/academy-agent-flow.svg" width="92%" alt="Three-track Google Cloud Gen AI Academy architecture" />
 </div>
 
-The root diagram stays deliberately simple. Each track README owns the lower-level architecture for its own agent, tools, data flow, service identity, deployment path, and validation evidence.
-
 ---
 
 ## 🛡️ My Security-First Engineering Lens
@@ -108,8 +106,6 @@ Security is not a decorative section at the end of this portfolio. It changes ho
 | **Where do secrets live?** | Never commit credentials, API keys, service-account keys, or private environment files. |
 | **How do I know it worked?** | Preserve sanitized tests, deployment evidence, and failure/recovery notes instead of relying on a success message alone. |
 | **What should remain private?** | Keep participant dashboards, quiz content, billing material, internal IDs, and private user data outside the public repository. |
-
-This repository is a learning environment, not a claim that tutorial-scale deployments are production systems. I use **production-minded practices** where the labs make them visible and document the limits where they do not.
 
 ---
 
@@ -143,7 +139,7 @@ My documentation rule is equally simple:
 
 ## 🧾 Evidence Standard
 
-I keep evidence curated rather than exhaustive. A public screenshot should answer a technical question, not merely prove that I clicked through a screen.
+I keep evidence curated rather than exhaustive. A public screenshot should answer a technical question.
 
 For each completed track, the strongest evidence will normally show:
 
@@ -152,8 +148,6 @@ For each completed track, the strongest evidence will normally show:
 3. the Cloud Run deployment result;
 4. the agent-to-data/tool behavior that defines the track;
 5. one security or operational control worth highlighting.
-
-Screenshots are sanitized before publication. Private account details, credentials, billing information, quiz content, and unnecessary identifiers are excluded.
 
 ---
 
