@@ -68,8 +68,6 @@ flowchart LR
 | Cloud Run deployment | Public managed service | 🟡 Final proof to be curated |
 | RAG behavior tests | In-menu, out-of-menu, and allergen-aware checks | 🟡 Final evidence to be curated |
 
-I use **pending** deliberately here: implementation results are not promoted to public PASS claims until the evidence is actually committed to this repository.
-
 ## 🔐 Security Notes
 
 A useful part of this codelab is that deployment is not treated as "give the app everything and hope for the best." The intended Cloud Run service uses a dedicated service account and the model-access role it needs rather than relying on a broadly privileged default runtime identity.
@@ -80,7 +78,6 @@ For the public repository I also keep the following boundaries:
 - no billing/project-account administration screenshots;
 - no unnecessary project numbers or participant-account identifiers;
 - no private environment files;
-- no claim that tutorial-scale in-memory chat state is durable production memory.
 
 ## 🧪 Validation Strategy
 
@@ -108,18 +105,18 @@ A second lesson is operational: the application is more than the prompt. Runtime
 01-track-1-rag-adk-cloud-run/
 ├── README.md
 ├── src/
-│   └── README.md                  # source-capture boundary; no reconstructed files
+│   └── README.md                 
 ├── docs/
 │   ├── engineering-notes.md
 │   └── testing-and-results.md
 └── evidence/
     ├── README.md
-    └── images/                    # sanitized screenshots added after curation
+    └── images/                   
 ```
 
 ### Why `src/` does not contain reconstructed code yet
 
-The working Track 1 files were created during the hands-on Cloud Shell execution. I want the public repository to preserve **actual implementation provenance**, so the source folder is intentionally waiting for a direct export from the working directory instead of recreating files from memory after the fact.
+The working Track 1 files were created during the hands-on Cloud Shell execution. I want the public repository to preserve **actual implementation provenance**, so the source folder is intentionally waiting for a direct export from the working directory.
 
 That boundary is documented in [`src/README.md`](./src/README.md).
 
@@ -129,12 +126,6 @@ That boundary is documented in [`src/README.md`](./src/README.md).
 - [Testing & results matrix](./docs/testing-and-results.md)
 - [Evidence index](./evidence/README.md)
 - [Source capture note](./src/README.md)
-
-## 🚧 Current Boundary
-
-**Track 1 is in progress.** This README documents the architecture, validation model, security lens, and evidence standard without pretending that screenshots/source artifacts that have not yet been curated are already present.
-
-When the final Cloud Run proof and source export are added, this page can move from **In Progress** to **Complete** with evidence-backed results.
 
 ---
 
