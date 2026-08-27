@@ -23,7 +23,7 @@
 
 **Three tracks. Three cloud builds. One security-first GenAI journey.**
 
-<sub>Sonia Mansha · Personal learning portfolio</sub>
+<sub>Sonia Mansha · Learning portfolio</sub>
 
 </div>
 
