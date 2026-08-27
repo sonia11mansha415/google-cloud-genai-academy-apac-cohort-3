@@ -15,8 +15,6 @@
 
 # ⚙️ Track 3 — Personal Productivity Agent on Cloud Run
 
-**Status: Queued.** The workspace stays intentionally lean until the official Track 3 execution begins.
-
 Official codelab: **[Run a personal agent on a Cloud Run service](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-personal-agent-coffee-shop)**
 
 ## 🎯 Engineering Mission
@@ -61,10 +59,6 @@ I will document:
 - the point where the agent asks for human approval;
 - whether a write action can occur without that approval;
 - how WebSocket interaction and operational errors are surfaced to the user.
-
-## 🧾 Documentation State
-
-The source, testing record and evidence are not populated yet. They will be added from the actual execution rather than from the plan.
 
 ---
 
