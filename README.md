@@ -233,7 +233,6 @@ Cloud Security · Cybersecurity · DevSecOps · Automation · Secure GenAI
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 <div align="center">
-![Views](https://komarev.com/ghpvc/?username=sonia11mansha415&label=Profile+Views&color=00f5ff&style=flat-square)
 <img src="https://img.shields.io/github/repo-size/sonia11mansha415/google-cloud-genai-academy-apac-cohort-3?style=for-the-badge&color=4285F4" alt="Repository size" />
 <img src="https://img.shields.io/github/last-commit/sonia11mansha415/google-cloud-genai-academy-apac-cohort-3?style=for-the-badge&color=7C4DFF" alt="Last commit" />
 
