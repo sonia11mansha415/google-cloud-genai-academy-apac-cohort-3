@@ -4,12 +4,12 @@
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2900&pause=850&color=4285F4&center=true&vCenter=true&repeat=true&width=1050&height=92&lines=Track%201%20%E2%80%A2%20Grounded%20RAG%20Agent%20%E2%86%92%20Cloud%20Run;Track%202%20%E2%80%A2%20Gemini%20%2B%20BigQuery%20MCP%20%E2%86%92%20Data%20Intelligence;Track%203%20%E2%80%A2%20Productivity%20Agent%20%E2%86%92%20Controlled%20Operations;Build%20%E2%86%92%20Test%20%E2%86%92%20Deploy%20%E2%86%92%20Validate%20%E2%86%92%20Secure%20%E2%86%92%20Document" alt="Cohort 3 engineering journey" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2900&pause=850&color=4285F4&center=true&vCenter=true&repeat=true&width=1050&height=92&lines=Track%201%20%E2%80%A2%20RAG%20%2B%20Firestore%20Vector%20Search%20%E2%86%92%20Complete;Track%202%20%E2%80%A2%20Gemini%20%2B%20BigQuery%20MCP%20%E2%86%92%20Data%20Intelligence;Track%203%20%E2%80%A2%20Productivity%20Agent%20%E2%86%92%20Controlled%20Operations;Build%20%E2%86%92%20Test%20%E2%86%92%20Deploy%20%E2%86%92%20Validate%20%E2%86%92%20Secure%20%E2%86%92%20Document" alt="Cohort 3 engineering journey" />
 
 ![Google Cloud](https://img.shields.io/badge/Google%20Cloud-GenAI%20Academy-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
 ![Cohort](https://img.shields.io/badge/APAC-Cohort%203-7C4DFF?style=for-the-badge)
 ![Workshops](https://img.shields.io/badge/Workshops-3%2F3%20Complete-34A853?style=for-the-badge)
-![Track 1](https://img.shields.io/badge/Track%201-In%20Progress-FBBC04?style=for-the-badge)
+![Track 1](https://img.shields.io/badge/Track%201-Complete-34A853?style=for-the-badge)
 ![Security](https://img.shields.io/badge/Lens-Security%20First-00B8D9?style=for-the-badge)
 
 <br/>
@@ -23,7 +23,7 @@
 
 **Three tracks. Three cloud builds. One security-first GenAI journey.**
 
-<sub>Sonia Mansha · Learning portfolio</sub>
+<sub>Sonia Mansha · Personal learning portfolio</sub>
 
 </div>
 
@@ -45,11 +45,12 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 |---|---|---|
 | Cohort registration | ✅ Complete | Program participation |
 | Workshops | ✅ 3 / 3 complete | Track learning context |
-| Track 1 — RAG + ADK + Cloud Run | 🟡 In progress | Grounded customer-facing agent |
+| Mandatory Academy Quiz | ✅ **10 / 10** | Accelerate AI with Cloud Run APAC |
+| Track 1 — RAG + ADK + Cloud Run | ✅ Complete | Customer-facing grounded agent |
+| Track 1 Quiz | ✅ **10 / 10** | Customer-Facing AI Agent assessment |
+| Track 1 — Firestore Vector Search | ✅ Complete | Vector-backed retrieval extension |
 | Track 2 — Gemini + BigQuery MCP | ⏳ Queued | Data-connected agent |
 | Track 3 — Productivity Agent | ⏳ Queued | Sandboxed operational agent |
-| Mandatory Academy assessment | ⏳ Pending | Academy requirement |
-| Track MCQs | ⏳ Pending | Track assessments |
 | Meet the Builders | ✅ Submitted | Community milestone |
 | Ideathon | 🔐 Separate repository | Secure Personal Gemini Journal |
 
@@ -61,9 +62,9 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 <tr>
 <td width="33%" valign="top">
 <h3>☕ Track 1 — Grounded RAG Agent</h3>
-<p><strong>Status:</strong> 🟡 In progress</p>
-<p>Build a customer-facing AI Barista with Google ADK and Gemini, ground recommendations in a controlled menu source, present the experience in Streamlit, and deploy it to Cloud Run.</p>
-<p><code>ADK</code> <code>Gemini</code> <code>RAG</code> <code>Streamlit</code> <code>Cloud Run</code></p>
+<p><strong>Status:</strong> ✅ Complete</p>
+<p>Built and deployed a customer-facing AI Barista grounded in menu data, validated its catalog and allergen boundaries, then extended retrieval with Firestore Vector Search.</p>
+<p><code>ADK</code> <code>Gemini</code> <code>RAG</code> <code>Streamlit</code> <code>Cloud Run</code> <code>Firestore</code></p>
 <p><a href="./01-track-1-rag-adk-cloud-run/"><strong>Open Track 1 →</strong></a></p>
 </td>
 <td width="33%" valign="top">
@@ -101,9 +102,11 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 |---|---|
 | **What identity is the workload using?** | Prefer dedicated service identities and avoid broader access than the runtime needs. |
 | **What data can the agent reach?** | Treat tool and data connections as explicit trust boundaries. |
-| **Can the model change data?** | Prefer read-only access for analysis and keep operational changes deliberate and reviewable. |
-| **Where do secrets live?** | Keep credentials, API keys, service-account keys, and private environment files out of source control. |
-| **How do I know it worked?** | Validate behavior with functional tests, deployment checks, and evidence instead of relying on a success message alone. |
+| **Can the model change data?** | Prefer read-oriented access for analysis and keep operational changes deliberate and reviewable. |
+| **Where do secrets live?** | Keep credentials and private configuration out of source control. |
+| **How do I know it worked?** | Validate behavior with functional, negative, and deployment tests rather than relying on a success message alone. |
+
+Track 1 made this practical: the deployed agent uses a dedicated runtime identity, retrieves catalog data through a controlled tool, and was tested with both valid and out-of-menu customer requests.
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
@@ -133,15 +136,24 @@ flowchart LR
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
-## 🧾 Evidence
+## 🧾 Track 1 Evidence Highlights
 
-For each completed track, I preserve a focused set of evidence that shows the implementation working:
+<table>
+<tr>
+<td width="50%" valign="top">
+<strong>Grounded customer recommendation</strong><br/><br/>
+<img src="./01-track-1-rag-adk-cloud-run/evidence/images/01-grounded-recommendation.png" width="100%" alt="Track 1 grounded recommendation" />
+<br/><em>A natural-language preference was matched to valid menu items.</em>
+</td>
+<td width="50%" valign="top">
+<strong>Firestore Vector Search</strong><br/><br/>
+<img src="./01-track-1-rag-adk-cloud-run/evidence/images/04-firestore-vector-search.png" width="100%" alt="Track 1 Firestore Vector Search" />
+<br/><em>A new Matcha product added directly to Firestore became visible and retrievable by the agent.</em>
+</td>
+</tr>
+</table>
 
-1. the deployed application or agent;
-2. a meaningful functional test;
-3. the Cloud Run deployment result;
-4. the tool or data behavior that defines the track;
-5. a security or operational control worth highlighting.
+[Open the full Track 1 evidence and test record →](./01-track-1-rag-adk-cloud-run/)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
@@ -150,51 +162,50 @@ For each completed track, I preserve a focused set of evidence that shows the im
 | Area | What you will find |
 |---|---|
 | [`00-academy-overview/`](./00-academy-overview/) | Cohort scope, current progress, official track links, and Ideathon boundary |
-| [`01-track-1-rag-adk-cloud-run/`](./01-track-1-rag-adk-cloud-run/) | Track 1 architecture, engineering notes, validation, and evidence index |
+| [`01-track-1-rag-adk-cloud-run/`](./01-track-1-rag-adk-cloud-run/) | Completed Track 1 case study, source, implementation, tests, evidence, and engineering notes |
 | [`02-track-2-gemini-bigquery-mcp/`](./02-track-2-gemini-bigquery-mcp/) | Track 2 mission, target architecture, and security focus |
 | [`03-track-3-productivity-agent/`](./03-track-3-productivity-agent/) | Track 3 mission, target architecture, and human-control model |
 | [`ATTRIBUTION.md`](./ATTRIBUTION.md) | Official codelab sources and attribution |
-| [`assets/`](./assets/) | Architecture and social-preview artwork |
+| [`assets/`](./assets/) | Academy architecture and social-preview artwork |
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
-## 🧠 Engineering Areas Demonstrated
+## 🧠 Engineering Areas
 
-| Area | Hands-on focus across the Academy |
+### Demonstrated in Track 1
+
+| Area | Hands-on evidence |
 |---|---|
-| 🤖 **AI Agent Engineering** | ADK agents, model instructions, tools, state, and deployment-oriented application structure |
-| 🧩 **Grounding & RAG** | Constraining recommendations to controlled source data and testing out-of-source behavior |
-| 📊 **Data-Connected Agents** | BigQuery, MCP, schema inspection, read-oriented SQL, and evidence-based reasoning |
-| ☁️ **Cloud-Native Deployment** | Cloud Run, build/deployment workflows, service identities, and environment configuration |
-| ⚙️ **Operational Agents** | Sandboxed code execution, business-data analysis, and human approval before mutations |
-| 🔐 **Security & DevSecOps** | Least privilege, secret hygiene, access boundaries, and controlled operational actions |
-| 🧪 **Validation** | Positive and negative tests, grounding checks, deployment verification, and result analysis |
-| 📝 **Technical Documentation** | Architecture, implementation notes, testing, evidence, limitations, and lessons learned |
+| 🤖 **AI Agent Engineering** | ADK `LlmAgent`, tool use, instructions, and deployed agent workflow |
+| 🧩 **Grounding & RAG** | Menu-only recommendations, negative catalog test, and metadata-aware filtering |
+| 💬 **Conversational UI** | Streamlit chat experience with visible product catalog |
+| ☁️ **Cloud-Native Deployment** | Cloud Run source deployment and build workflow |
+| 🔐 **Workload Identity & IAM** | Dedicated service identity with Vertex AI and Firestore access |
+| 🧠 **Embeddings & Vector Search** | `text-embedding-005`, Firestore vector index, semantic nearest-neighbor retrieval |
+| 🧪 **Validation** | Positive, negative, allergen-aware, deployment, and dynamic-data tests |
+
+### Next tracks
+
+| Area | Planned track |
+|---|---|
+| 📊 **BigQuery + MCP data agents** | Track 2 |
+| ⚙️ **Sandboxed operational agents** | Track 3 |
+| ✅ **Human-controlled data updates** | Track 3 |
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
-## 🌱 What I Am Building Toward
+## 🌐 Community & Next Build
 
-The Academy is one stage in a larger direction for me: **secure GenAI application and AI-agent engineering**.
+**Meet the Builders:** ✅ Submitted  
+[View my Cohort 3 LinkedIn update](https://lnkd.in/p/g43pkrGc)
 
-My cloud-security background taught me to think about identity, data boundaries, resilience, and evidence. Cohort 3 adds models, tools, grounding, agent workflows, managed AI services, and serverless deployment to that foundation.
-
-The next challenge is the **Secure Personal Gemini Journal** Ideathon project, which will have its own public repository and technical case study.
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
-
-## 🌐 Cohort Update
-
-I completed the **Meet the Builders** submission and shared my Cohort 3 / Ideathon direction publicly:
-
-**LinkedIn:** https://lnkd.in/p/g43pkrGc
+The Cohort 3 Ideathon — **Secure Personal Gemini Journal** — is a separate build and will have its own repository.
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 👩‍💻 About Me
 
-**Sonia Mansha**  
-Cloud Security · Cybersecurity · DevSecOps · Automation · Secure GenAI
+I am **Sonia Mansha**, building at the intersection of **Cloud Security, DevSecOps, and Generative AI**. I am especially interested in AI agents that are useful to people while keeping identity, data access, credentials, and operational actions explicit and controlled.
 
 - GitHub: https://github.com/sonia11mansha415
 - LinkedIn: https://www.linkedin.com/in/sonia11mansha415

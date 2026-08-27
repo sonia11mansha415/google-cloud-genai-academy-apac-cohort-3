@@ -12,7 +12,7 @@
 
 # 🧭 Academy Overview
 
-I am completing all three **Google Cloud Gen AI Academy APAC — Cohort 3** tracks and their required assessments, then moving into the Cohort 3 Ideathon with a separate judge-focused repository.
+I am completing all three **Google Cloud Gen AI Academy APAC — Cohort 3** tracks and their required assessments, then moving into the Cohort 3 Ideathon with a separate repository.
 
 My goal is to understand the full path from **agent design → data/tool connection → cloud deployment → validation → secure operation**.
 
@@ -23,9 +23,10 @@ My goal is to understand the full path from **agent design → data/tool connect
 | Registration | ✅ Complete |
 | Workshops | ✅ Track 1 · Track 2 · Track 3 complete |
 | Meet the Builders | ✅ Submitted |
-| Track 1 codelab | 🟡 In progress |
-| Track 1 MCQ | ⏳ Pending |
-| Mandatory Academy assessment | ⏳ Pending |
+| Mandatory Academy Quiz | ✅ **10 / 10** |
+| Track 1 codelab | ✅ Complete |
+| Track 1 Firestore Vector Search | ✅ Complete |
+| Track 1 Quiz | ✅ **10 / 10** |
 | Track 2 codelab + MCQ | ⏳ Queued |
 | Track 3 codelab + MCQ | ⏳ Queued |
 | Ideathon | 🔐 Separate repository |
@@ -34,17 +35,37 @@ My goal is to understand the full path from **agent design → data/tool connect
 
 ## 🧪 Three Technical Tracks
 
-| Track | Engineering problem | Core technologies | Official codelab |
-|---|---|---|---|
-| **1 — Customer-facing AI agent** | Ground an AI Barista in controlled menu data and deploy it | ADK, Gemini, RAG, Streamlit, Cloud Run | [Open](https://codelabs.developers.google.com/codelabs/cloud-run/build-streamlit-rag-agent-google-adk-cloud-run) |
-| **2 — Data-connected AI agent** | Let an agent inspect and reason from BigQuery through managed MCP tools | ADK, Gemini, BigQuery, MCP, Cloud Run | [Open](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-adk-gemini-bq-mcp) |
-| **3 — Personal productivity agent** | Analyze business data, execute code in a sandbox, and gate operational updates behind human approval | ADK, Cloud Run, Sandboxes, Google Sheets, WebSockets | [Open](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-personal-agent-coffee-shop) |
+| Track | Engineering problem | Core technologies | Status | Official codelab |
+|---|---|---|---|---|
+| **1 — Customer-facing AI agent** | Ground an AI Barista in controlled menu data, deploy it, then extend retrieval with Firestore Vector Search | ADK, Gemini, RAG, Streamlit, Cloud Run, Firestore | ✅ Complete | [Open](https://codelabs.developers.google.com/codelabs/cloud-run/build-streamlit-rag-agent-google-adk-cloud-run) |
+| **2 — Data-connected AI agent** | Let an agent inspect and reason from BigQuery through managed MCP tools | ADK, Gemini, BigQuery, MCP, Cloud Run | ⏳ Queued | [Open](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-adk-gemini-bq-mcp) |
+| **3 — Personal productivity agent** | Analyze business data, execute code in a sandbox, and gate operational updates behind human approval | ADK, Cloud Run, Sandboxes, Google Sheets, WebSockets | ⏳ Queued | [Open](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-personal-agent-coffee-shop) |
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
+## ☕ Track 1 Completion
+
+Track 1 progressed from local menu grounding to a deployed Cloud Run application and then to Firestore Vector Search.
+
+Completed milestones include:
+
+- ADK agent + Streamlit customer interface;
+- dedicated Cloud Run runtime identity;
+- grounded preference test;
+- out-of-menu negative test;
+- allergen-aware catalog test;
+- Firestore menu seeding with embeddings;
+- Firestore vector index;
+- dynamic Matcha item verification;
+- Track 1 assessment score: **10 / 10**.
+
+[Open the completed Track 1 case study →](../01-track-1-rag-adk-cloud-run/)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🔐 Ideathon
 
-The Cohort 3 Ideathon challenge — **Secure Personal Gemini Journal** — will be documented in a separate repository.
+The Cohort 3 Ideathon challenge — **Secure Personal Gemini Journal** — is a separate build and repository.
 
 [Open the official Ideathon codelab](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-ai-challenge)
 
