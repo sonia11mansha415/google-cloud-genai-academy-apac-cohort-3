@@ -44,7 +44,7 @@ My goal is to understand the full path from **agent design → data/tool connect
 
 ## 🔐 Ideathon
 
-The Cohort 3 Ideathon challenge — **Secure Personal Gemini Journal** — will be documented in a separate repository with its own source code, security architecture, tests, deployment, and demo evidence.
+The Cohort 3 Ideathon challenge — **Secure Personal Gemini Journal** — will be documented in a separate repository.
 
 [Open the official Ideathon codelab](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-ai-challenge)
 
