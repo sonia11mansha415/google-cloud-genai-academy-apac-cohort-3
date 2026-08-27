@@ -1,28 +1,102 @@
 <a id="top"></a>
 
-[🏠 Academy Home](../../README.md) · [☕ Track 1](../README.md) · **Testing & Results**
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+> 🧭 [Repository Home](../../README.md) › [Track 1](../README.md) › **Testing & Results**
 
 # 🧪 Track 1 Testing & Results
 
-## Validation Matrix
+The final Track 1 implementation was validated from the deployed customer interface, including the Firestore Vector Search extension.
 
-| ID | Test | Engineering question | Expected result | Status |
-|---|---|---|---|---|
-| T1-01 | Valid menu preference | Does grounding return a real menu item? | Recommend an item present in the controlled menu | ⏳ Pending |
-| T1-02 | Out-of-menu trap | Will the model invent a product? | Refuse or redirect instead of fabricating an unavailable item | ⏳ Pending |
-| T1-03 | Allergen constraint | Does product metadata change the answer correctly? | Exclude options that conflict with the stated allergen constraint | ⏳ Pending |
-| T1-04 | Conversation continuity | Does the active UI session preserve context? | Keep messages available during the live Streamlit session | ⏳ Pending |
-| T1-05 | Cloud Run deployment | Is the deployed service reachable? | Load the working application from the Cloud Run URL | ⏳ Pending |
-| T1-06 | Runtime model access | Can the deployed workload call Gemini through its runtime identity? | Return a Gemini-backed response from Cloud Run | ⏳ Pending |
+## Acceptance matrix
 
-## Result Format
+| ID | Test | Expected | Observed | Result | Evidence |
+|---|---|---|---|---|---|
+| T1-01 | Grounded preference | Recommend real menu items matching cold + strong + dairy-free | Returned **Cold Brew Coffee** and **Nitro Cold Brew** | ✅ PASS | [01](../evidence/images/01-grounded-recommendation.png) |
+| T1-02 | Out-of-menu request | Do not invent an unavailable Matcha Frappuccino | The agent did not claim the requested product existed and redirected to real choices | ✅ PASS | [02](../evidence/images/02-out-of-menu-test.png) |
+| T1-03 | Dairy constraint | Use recorded menu metadata to avoid dairy-conflicting choices | Returned dairy-free menu options | ✅ PASS | [03](../evidence/images/03-allergen-aware-test.png) |
+| T1-04 | Cloud Run deployment | Deployed app loads and produces model-backed responses | Streamlit app loaded successfully from Cloud Run and responded in chat | ✅ PASS | [01](../evidence/images/01-grounded-recommendation.png) |
+| T1-05 | Active session conversation | Preserve messages during the active Streamlit session | Multiple user/assistant interactions remained visible during the session | ✅ PASS | [02](../evidence/images/02-out-of-menu-test.png) |
+| T1-06 | Firestore vector retrieval | Retrieve semantically relevant menu documents from Firestore | Vector-backed retrieval returned menu data to the agent | ✅ PASS | [04](../evidence/images/04-firestore-vector-search.png) |
+| T1-07 | Dynamic database update | New Firestore product appears without changing the seed JSON | **Matcha Green Tea Latte** appeared in the live sidebar | ✅ PASS | [04](../evidence/images/04-firestore-vector-search.png) |
+| T1-08 | Dynamic Matcha query | Agent retrieves the new Firestore item for a Matcha request | The agent recommended **Matcha Green Tea Latte** | ✅ PASS | [04](../evidence/images/04-firestore-vector-search.png) |
 
-Completed tests are recorded as:
+## Test 1 — Grounded customer preference
 
-**Input → Observed behavior → Expected behavior → PASS / FAIL → Evidence**
+**Prompt**
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+```text
+I want something cold, strong, and dairy-free. What do you recommend?
+```
 
-[← Engineering Notes](./engineering-notes.md) · [Evidence Index →](../evidence/README.md) · [Back to top](#top)
+**Observed**
+
+The agent recommended **Cold Brew Coffee** and **Nitro Cold Brew**, both valid menu items matching the request.
+
+**Result:** ✅ PASS
+
+![Grounded recommendation](../evidence/images/01-grounded-recommendation.png)
+
+## Test 2 — Out-of-menu boundary
+
+**Prompt**
+
+```text
+Do you have a matcha frappuccino?
+```
+
+**Observed**
+
+The agent did not invent the unavailable product and redirected the conversation to products that existed in the menu.
+
+**Result:** ✅ PASS
+
+![Out-of-menu test](../evidence/images/02-out-of-menu-test.png)
+
+## Test 3 — Allergen-aware filtering
+
+**Prompt**
+
+```text
+I'm lactose intolerant, what can I get?
+```
+
+**Observed**
+
+The response used the menu's recorded dairy metadata to return dairy-free choices and avoid products marked with dairy allergens.
+
+**Result:** ✅ PASS
+
+![Allergen-aware test](../evidence/images/03-allergen-aware-test.png)
+
+> [!NOTE]
+> This test validates filtering against the catalog metadata. It is not medical guidance, and its accuracy depends on the quality of the product allergen data.
+
+## Test 4 — Firestore Vector Search and live data
+
+The optional Firestore extension changed the application from local-file retrieval to a live vector-backed menu.
+
+A new item, **Matcha Green Tea Latte**, was added directly to Firestore with an embedding. The original `menu.json` remained unchanged.
+
+**Prompt**
+
+```text
+Do you have any matcha drinks?
+```
+
+**Observed**
+
+The new item appeared in the sidebar and was successfully retrieved by the agent.
+
+**Result:** ✅ PASS
+
+![Firestore Vector Search](../evidence/images/04-firestore-vector-search.png)
+
+## Final result
+
+**Track 1 technical implementation:** ✅ Complete  
+**Core Cloud Run deployment:** ✅ Validated  
+**Core RAG tests:** ✅ Passed  
+**Firestore Vector Search extension:** ✅ Completed and validated
+
+---
+
+[🧱 Implementation](./implementation.md) · [🧠 Engineering Notes](./engineering-notes.md) · [☕ Track 1](../README.md) · [↑ Back to top](#top)
