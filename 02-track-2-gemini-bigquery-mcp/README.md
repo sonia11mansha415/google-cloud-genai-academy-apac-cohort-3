@@ -15,7 +15,7 @@
 
 # 📊 Track 2 — Data Agent with Gemini + BigQuery MCP
 
-**Status: Queued.** This page records the verified Academy direction without pretending the implementation has already happened.
+**Status: Queued.**
 
 Official codelab: **[Build and Deploy AI Agents with Gemini and BigQuery MCP server in Cloud Run](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-adk-gemini-bq-mcp)**
 
@@ -60,7 +60,7 @@ During execution I will specifically document:
 
 ## 🧾 Documentation State
 
-`src/`, `docs/`, and `evidence/` are intentionally empty until the track begins. Planned work is not presented as implemented work.
+`src/`, `docs/`, and `evidence/` are intentionally empty until the track begins.
 
 ---
 
