@@ -31,7 +31,7 @@
 <text x="750" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#B39DDB">Gemini + BigQuery MCP</text>
 <text x="750" y="417" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#D7E7F7">ADK · managed MCP</text>
 <text x="750" y="446" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#D7E7F7">Read-only data reasoning</text>
-<text x="750" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#9AA0A6">QUEUED</text>
+<text x="750" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#34A853">COMPLETE</text>
 
 <rect x="1070" y="300" width="340" height="190" rx="26" fill="#0D2C28" stroke="url(#g3)" stroke-width="3" filter="url(#shadow)"/>
 <text x="1240" y="346" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#fff">TRACK 3</text>
