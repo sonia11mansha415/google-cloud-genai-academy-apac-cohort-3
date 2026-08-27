@@ -29,8 +29,6 @@ A concise public evidence set is enough:
 5. deployment/service result;
 6. source capture or repository diff proving which implementation was deployed.
 
-The Hack2skill submission proof and the public GitHub evidence are related but not identical. Private participant submission screenshots do not need to be republished in this repository.
-
 ## Result-writing rule
 
 When this page is finalized, each result should answer:
