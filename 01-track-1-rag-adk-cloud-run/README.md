@@ -1,14 +1,15 @@
 <a id="top"></a>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B57D0,100:00B8D9&height=155&section=header&text=Track%201%20%E2%80%94%20Grounded%20RAG%20Agent&fontSize=32&fontColor=ffffff&animation=fadeIn&desc=ADK%20%E2%80%A2%20Gemini%20%E2%80%A2%20Streamlit%20%E2%80%A2%20Cloud%20Run&descSize=16&descAlignY=69" width="100%" alt="Track 1 header" />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B57D0,100:00B8D9&height=155&section=header&text=Track%201%20%E2%80%94%20Grounded%20RAG%20Agent&fontSize=32&fontColor=ffffff&animation=fadeIn&desc=ADK%20%E2%80%A2%20Gemini%20%E2%80%A2%20Streamlit%20%E2%80%A2%20Cloud%20Run%20%E2%80%A2%20Firestore%20Vector%20Search&descSize=15&descAlignY=69" width="100%" alt="Track 1 — Grounded RAG Agent" />
 
 <div align="center">
 
-![Status](https://img.shields.io/badge/Status-In%20Progress-FBBC04?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Complete-34A853?style=for-the-badge)
 ![ADK](https://img.shields.io/badge/Google-ADK-4285F4?style=for-the-badge)
 ![Gemini](https://img.shields.io/badge/Gemini-Agent-7C4DFF?style=for-the-badge)
 ![RAG](https://img.shields.io/badge/RAG-Grounded%20Recommendations-00B8D9?style=for-the-badge)
-![Cloud Run](https://img.shields.io/badge/Cloud%20Run-Deployment-34A853?style=for-the-badge&logo=googlecloud&logoColor=white)
+![Vector Search](https://img.shields.io/badge/Firestore-Vector%20Search-34A853?style=for-the-badge)
+![Quiz](https://img.shields.io/badge/Track%201%20Quiz-10%2F10-34A853?style=for-the-badge)
 
 [🏠 Academy Home](../README.md) · [🧭 Overview](../00-academy-overview/) · **☕ Track 1** · [📊 Track 2 →](../02-track-2-gemini-bigquery-mcp/)
 
@@ -18,9 +19,13 @@
 
 # ☕ Track 1 — RAG AI Barista on Cloud Run
 
-## 🎯 What I Am Building
+## 🎯 What I Built
 
-Track 1 focuses on a customer-facing AI Barista that recommends products from a controlled coffee-shop menu. The agent must stay grounded in the available menu, respect product metadata such as allergens, maintain a conversational interface, and run as a deployed Cloud Run service.
+I built and deployed a customer-facing **AI Barista** that answers natural-language menu questions while staying grounded in the coffee shop's available products.
+
+The first version used a local JSON menu as the source of truth. After the core deployment and RAG tests passed, I completed the Firestore Vector Search extension and moved retrieval to a live vector-backed menu collection.
+
+The finished application combines **Google ADK, Gemini, Streamlit, Cloud Run, Cloud Firestore, Vector Search, and text embeddings**.
 
 **Official codelab:** [Deploy a RAG AI Agent in Streamlit using Google ADK and Cloud Run](https://codelabs.developers.google.com/codelabs/cloud-run/build-streamlit-rag-agent-google-adk-cloud-run)
 
@@ -30,84 +35,219 @@ Track 1 focuses on a customer-facing AI Barista that recommends products from a 
 
 ### Problem
 
-A general LLM can produce plausible recommendations that are not connected to the shop's actual products. A menu-driven assistant needs a controlled source of truth and must not invent unavailable items or ignore allergen constraints.
+A general LLM can answer fluently while still recommending products that do not exist or overlooking catalog metadata such as allergens. A customer-facing menu agent needs a controlled data source and a clear retrieval boundary.
 
 ### Solution
 
-The ADK agent connects to a menu tool that supplies the product data used for recommendations. Gemini handles the conversational reasoning, Streamlit provides the chat experience, and Cloud Run hosts the application.
+I connected the ADK agent to a menu-retrieval tool, used Gemini for conversational reasoning, built the customer interface in Streamlit, and deployed the application to Cloud Run with a dedicated runtime identity.
+
+The final version embeds the customer's request and uses **Firestore Vector Search** to return the three most semantically relevant menu items before Gemini prepares the response.
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
+## 🔄 Build Evolution
+
+### Stage 1 — Local menu grounding
+
+```text
+Customer
+   ↓
+Streamlit UI
+   ↓
+ADK LlmAgent
+   ↓
+get_menu()
+   ↓
+menu.json
+   ↓
+Grounded Gemini response
+```
+
+This version gave the agent a controlled eight-item menu with product descriptions, tags, prices, and allergen metadata.
+
+### Stage 2 — Firestore Vector Search
+
+```text
+Customer query
+      ↓
+Streamlit on Cloud Run
+      ↓
+ADK LlmAgent
+      ↓
+get_menu(query)
+      ↓
+text-embedding-005
+      ↓
+Firestore Vector Search
+      ↓
+Top 3 menu documents
+      ↓
+Grounded Gemini response
+```
+
+The Streamlit sidebar also reads the live Firestore collection, so changes to the database are reflected in the visible menu.
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
+## 🏗️ Final Architecture
 
 ```mermaid
 flowchart LR
-    U[Customer] --> S[Streamlit Chat UI]
-    S --> A[ADK Agent]
+    U[Customer] --> S[Streamlit UI]
+    S --> A[ADK LlmAgent]
     A --> G[Gemini]
-    A --> T[get_menu tool]
-    T --> M[(Menu Data)]
-    G --> A
+    A --> T[get_menu query tool]
+    T --> E[text-embedding-005]
+    E --> F[(Firestore Vector Search)]
+    F --> T
+    T --> A
     A --> S
-    S --> U
-    S -. deployed as .-> C[Cloud Run]
+    F -. live menu .-> S
+    S -. deployed on .-> C[Cloud Run]
+    C -. runtime identity .-> I[Dedicated Service Account]
 
     classDef user fill:#0B57D0,stroke:#8AB4F8,color:#fff,stroke-width:2px;
     classDef app fill:#063970,stroke:#00B8D9,color:#fff,stroke-width:2px;
     classDef model fill:#311B92,stroke:#7C4DFF,color:#fff,stroke-width:2px;
     classDef data fill:#1B5E20,stroke:#34A853,color:#fff,stroke-width:2px;
+    classDef identity fill:#713F12,stroke:#FBBC04,color:#fff,stroke-width:2px;
     class U user;
     class S,A,C app;
-    class G model;
-    class T,M data;
+    class G,E model;
+    class T,F data;
+    class I identity;
 ```
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
-## 🧱 Build Path
+## 🧱 Implementation Highlights
 
-| Stage | Engineering purpose |
+| Area | What I implemented |
 |---|---|
-| Project + API setup | Prepare the Google Cloud services required by the application |
-| Menu grounding source | Provide the controlled product data used by the agent |
-| ADK agent | Define the model instructions and menu tool behavior |
-| Streamlit application | Present the conversation and menu experience |
-| Cloud Run identity | Run the service with a dedicated workload identity |
-| Cloud Run deployment | Publish the application as a managed service |
-| Behavioral validation | Test grounding, unavailable products, allergens, and deployed behavior |
+| **Menu grounding** | Eight catalog items with descriptions, prices, tags, and allergen metadata |
+| **Agent** | ADK `LlmAgent` with menu-only recommendation rules and a `get_menu()` tool |
+| **Customer UI** | Streamlit chat interface with a visible menu sidebar and active-session conversation history |
+| **Runtime identity** | Dedicated Cloud Run service account for model and Firestore access |
+| **Deployment** | Source deployment to Cloud Run through Google Cloud build tooling |
+| **Vector retrieval** | `text-embedding-005` embeddings + Firestore nearest-neighbor search |
+| **Dynamic data** | New Matcha item added directly to Firestore and retrieved without changing `menu.json` |
+
+### Source files
+
+```text
+source/
+├── agent.py          → ADK agent and Firestore vector-retrieval tool
+├── app.py            → Streamlit customer interface
+├── menu.json         → original eight-item seed menu
+├── requirements.txt  → Python dependencies
+└── seed.py           → Firestore seeding + embedding generation
+```
+
+[Open the implementation guide](./docs/implementation.md)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
-## 🔐 Security Notes
+## 🔐 Security & Cloud Identity
 
-The Cloud Run workload uses a dedicated service account with the model access required by the application rather than relying on a broadly privileged default runtime identity.
+The runtime uses a dedicated service account instead of relying on a broad default identity.
 
-The grounding tool also creates an important data boundary: the model can reason about the menu, but the menu remains the source of truth for the product catalog.
+| Control | Implementation |
+|---|---|
+| **Vertex AI access** | `roles/aiplatform.user` granted to the Cloud Run service identity |
+| **Firestore access** | `roles/datastore.user` added after the vector-search extension |
+| **Credentials** | No API key or service-account JSON is hardcoded in the application source |
+| **Grounding boundary** | The agent instructions require recommendations to come from retrieved menu data |
+| **Negative validation** | An unavailable menu request was tested to confirm the agent did not invent the requested product |
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
-## 🧪 Validation Strategy
+## 🧪 Testing & Results
 
-| Test | What it checks | Expected behavior |
+| Test | Observed result | Status |
 |---|---|---|
-| Strong + warm recommendation | Grounded selection | Recommend a suitable item that exists in the menu |
-| Out-of-menu request | Hallucination resistance | Decline or redirect instead of inventing a product |
-| Lactose-intolerant request | Allergen awareness | Restrict recommendations to options without a dairy conflict |
-| Conversation continuity | Session behavior | Preserve the active Streamlit conversation while the session remains alive |
-| Cloud Run access | Deployment | Load the working application from the deployed service URL |
+| Cold + strong + dairy-free request | Recommended **Cold Brew Coffee** and **Nitro Cold Brew** from the menu | ✅ PASS |
+| Out-of-menu Matcha Frappuccino request | Did not claim the unavailable product existed and redirected to real menu choices | ✅ PASS |
+| Lactose-intolerant request | Returned dairy-free choices based on the menu metadata | ✅ PASS |
+| Cloud Run deployment | Deployed application loaded and returned model-backed responses | ✅ PASS |
+| Firestore Vector Search | Semantic menu retrieval worked after the application was updated and redeployed | ✅ PASS |
+| Dynamic Firestore update | A newly added **Matcha Green Tea Latte** appeared in the sidebar and was recommended for a Matcha query | ✅ PASS |
 
-[Open the detailed testing matrix](./docs/testing-and-results.md)
+[Open the full testing record](./docs/testing-and-results.md)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
-## 🧠 What This Track Is Teaching Me
+## 🧾 Evidence Highlights
 
-The most important shift for me is that **model quality is not only about fluent answers**. A useful agent needs a source of truth, a controlled tool boundary, a deployable application layer, and tests that challenge the model to stay inside its rules.
+<table>
+<tr>
+<td width="50%" valign="top">
+<strong>Grounded recommendation</strong><br/><br/>
+<img src="./evidence/images/01-grounded-recommendation.png" width="100%" alt="Grounded recommendation test" />
+<br/><em>The agent matched a natural-language request to valid cold, strong, dairy-free menu items.</em>
+</td>
+<td width="50%" valign="top">
+<strong>Out-of-menu boundary</strong><br/><br/>
+<img src="./evidence/images/02-out-of-menu-test.png" width="100%" alt="Out-of-menu test" />
+<br/><em>The unavailable Matcha Frappuccino request did not produce a fabricated catalog item.</em>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<strong>Allergen-aware filtering</strong><br/><br/>
+<img src="./evidence/images/03-allergen-aware-test.png" width="100%" alt="Allergen-aware test" />
+<br/><em>The response used the menu's recorded dairy metadata to filter recommendations.</em>
+</td>
+<td width="50%" valign="top">
+<strong>Firestore Vector Search</strong><br/><br/>
+<img src="./evidence/images/04-firestore-vector-search.png" width="100%" alt="Firestore Vector Search test" />
+<br/><em>A Matcha item added directly to Firestore became visible in the app and retrievable by the agent.</em>
+</td>
+</tr>
+</table>
 
-The deployment also makes the wider system visible: runtime identity, APIs, environment configuration, build behavior, session state, and Cloud Run all affect whether the agent works reliably.
+[Open the evidence index](./evidence/README.md)
 
-## 🔎 Detailed Documentation
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
+## 🧠 What I Learned
+
+I enjoyed this track because each layer made the agent feel more like a real application. Building the Streamlit interface was especially useful: the menu remained visible to the customer while the chat accepted simple requests such as *cold, strong, dairy-free* instead of forcing the user to know exact product names.
+
+The first grounded recommendation made the RAG behavior much clearer to me. The important part was not only getting a fluent answer; it was seeing the response stay connected to the catalog and its metadata.
+
+Deploying to Cloud Run also connected the application code to the wider cloud system — APIs, runtime identity, permissions, environment configuration, build behavior, and the deployed service all had to work together.
+
+The Firestore extension was the strongest learning step for me. I seeded menu documents with embeddings, created the vector index, moved retrieval into Firestore, and then added **Matcha Green Tea Latte** directly to the live database. Seeing the new product appear in the UI and become retrievable by the agent made vector-backed retrieval much easier to understand in practice.
+
+[Open the engineering notes](./docs/engineering-notes.md)
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
+## ⚠️ Limitations
+
+- Conversation history is maintained for the active Streamlit session rather than stored as durable user memory.
+- Allergen recommendations depend on the accuracy and completeness of the menu metadata and should not be treated as medical guidance.
+- The project validates a tutorial-scale customer experience; it does not include authentication, abuse controls, or production observability.
+- The menu retrieval path returns the nearest three Firestore items; a larger production catalog would need stronger retrieval evaluation and relevance monitoring.
+
+## 🔭 Possible Security & Engineering Enhancements
+
+- introduce authentication and rate/abuse controls for a public production service;
+- review whether Firestore access can be narrowed further for a read-heavy runtime;
+- replace raw exception text shown to users with safer application-level error handling;
+- add structured logging, metrics, and repeatable retrieval evaluation;
+- add prompt-injection tests that attempt to bypass the menu-only boundary;
+- use Secret Manager if future integrations introduce external API credentials.
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
+## 🔎 Technical Documentation
+
+- [Implementation](./docs/implementation.md)
 - [Engineering notes](./docs/engineering-notes.md)
 - [Testing & results](./docs/testing-and-results.md)
 - [Evidence index](./evidence/README.md)
-
+- [Source code](./source/)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 

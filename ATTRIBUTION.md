@@ -13,15 +13,8 @@ This repository documents my hands-on work from **Google Cloud Gen AI Academy AP
 | Track 3 | [Run a personal agent on a Cloud Run service](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-personal-agent-coffee-shop) |
 | Ideathon | [Build a User-Authenticated AI Application with Custom Instructions on Google AI Studio & Cloud Run](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-ai-challenge) — documented separately |
 
-## My Portfolio Work
+The codelabs provide the learning path. This portfolio records my implementation, architecture, deployment, testing, security observations, evidence, and lessons learned.
 
-The codelabs provide the learning path. This portfolio records my:
-
-- implementation and architecture notes;
-- deployment and validation evidence;
-- security observations;
-- troubleshooting and lessons learned;
-- public technical documentation.
-
+Source-file notices from official samples should be preserved where applicable.
 
 [Back to repository home](./README.md) · [Back to top](#top)

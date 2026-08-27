@@ -22,9 +22,9 @@
 <rect x="90" y="300" width="340" height="190" rx="26" fill="#0B2239" stroke="url(#g1)" stroke-width="3" filter="url(#shadow)"/>
 <text x="260" y="346" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#fff">TRACK 1</text>
 <text x="260" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#4DD0E1">Grounded RAG Agent</text>
-<text x="260" y="417" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#D7E7F7">ADK · Gemini · Streamlit</text>
-<text x="260" y="446" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#D7E7F7">Controlled menu grounding</text>
-<text x="260" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#FBBC04">IN PROGRESS</text>
+<text x="260" y="417" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#D7E7F7">ADK · Gemini · Firestore</text>
+<text x="260" y="446" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#D7E7F7">RAG + Vector Search</text>
+<text x="260" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#34A853">COMPLETE</text>
 
 <rect x="580" y="300" width="340" height="190" rx="26" fill="#161B42" stroke="url(#g2)" stroke-width="3" filter="url(#shadow)"/>
 <text x="750" y="346" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#fff">TRACK 2</text>
