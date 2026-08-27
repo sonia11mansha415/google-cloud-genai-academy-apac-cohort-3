@@ -10,7 +10,7 @@
 
 # 🧭 Academy Overview
 
-This folder is the **public program context** for my Google Cloud Gen AI Academy APAC — Cohort 3 portfolio. It intentionally stays concise: the technical depth belongs inside the individual track folders.
+This folder is the **public program context** for my Google Cloud Gen AI Academy APAC — Cohort 3 portfolio. The technical depth belongs inside the individual track folders.
 
 ## 🎯 My Cohort 3 Goal
 
@@ -32,8 +32,6 @@ My learning goal is to understand the complete path from **agent design → data
 | Track 3 codelab + MCQ | ⏳ Queued |
 | Ideathon codelab + Secure Personal Gemini Journal | 🔐 Separate project/repository |
 
-No quiz questions or answers are stored in this repository.
-
 ## 🧪 Three Technical Tracks
 
 | Track | Engineering problem | Core technologies | Official codelab |
@@ -46,7 +44,7 @@ No quiz questions or answers are stored in this repository.
 
 The Cohort 3 Ideathon challenge — **Secure Personal Gemini Journal** — will be documented in a separate repository. That project has a different standard because it must stand on its own for judging, including its security architecture, source code, public deployment, test evidence, original enhancement, and demo narrative.
 
-Official codelab: https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-ai-challenge
+[Official codelab link](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-ai-challenge)
 
 ## 🧾 Documentation Standard
 
@@ -79,8 +77,6 @@ Problem
 - billing/credit/payment information;
 - IAM/account administration history;
 - secrets, API keys, tokens, credentials and service-account keys;
-- private user or company data;
-- repetitive progress screenshots that do not add technical evidence.
 
 ## 🌐 Community Milestone
 
