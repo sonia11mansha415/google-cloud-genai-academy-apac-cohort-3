@@ -57,11 +57,7 @@ During execution I will specifically document:
 - how read-only SQL limits accidental data modification;
 - how the agent verifies schema and values before assuming relationships;
 - how the deployed Cloud Run agent is validated against real query results.
-
-## 🧾 Documentation State
-
-`src/`, `docs/`, and `evidence/` are intentionally empty until the track begins.
-
+ 
 ---
 
 <div align="center">
