@@ -1,74 +1,69 @@
 <a id="top"></a>
 
-[🏠 Academy Home](../../README.md) · [☕ Track 1](../README.md) · **Engineering Notes**
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+> 🧭 [Repository Home](../../README.md) › [Track 1](../README.md) › **Engineering Notes**
 
 # 🧠 Track 1 Engineering Notes
 
-## 1. Start with a controlled source of truth
+## From individual files to a customer-facing agent
 
-The agent is not supposed to act like a generic coffee expert. It is supposed to act like a barista for **this menu**.
+This track helped me understand how the pieces of an AI-agent application fit together.
 
-That changes the design question from:
+`agent.py` defines the model behavior and tool boundary. `app.py` turns that agent into an interface a customer can actually use. `menu.json` provides structured product data, and Cloud Run turns the local project into a reachable service.
 
-> "Can Gemini recommend coffee?"
+Seeing those responsibilities separately made the project easier to reason about than treating the agent as one large script.
 
-into:
+## Building the customer experience
 
-> "Can the agent recommend only what the controlled menu contains while respecting the product metadata that matters to the user?"
+I enjoyed the Streamlit part of the build because it made the agent feel like an application rather than a backend experiment.
 
-The menu tool becomes the grounding boundary.
+The sidebar exposes the menu, prices, descriptions, tags, and allergen information while the chat accepts simple customer language. A customer can describe what they want — for example, *cold, strong, and dairy-free* — without knowing the exact product name first.
 
-## 2. Keep task data behind a tool
+That interaction was one of the most useful parts of the exercise for me because it connected the model behavior to a clear user experience.
 
-The model instructions describe behavior; the tool supplies the menu data. This separation makes the application easier to reason about and keeps the source of truth distinct from the prompt.
+## Grounding became concrete during testing
 
-## 3. The UI is part of the agent system
+The first recommendation test made the grounding concept much clearer. I asked for something cold, strong, and dairy-free, and the agent returned **Cold Brew Coffee** and **Nitro Cold Brew** from the menu.
 
-Streamlit manages:
+The out-of-menu test was equally important. Asking for a Matcha Frappuccino challenged the agent to stay inside the catalog instead of producing a plausible but unavailable product.
 
-- chat input and output;
-- active-session conversation state;
-- visible menu context;
-- error feedback;
-- the interaction pattern the user experiences.
+The allergen test showed another side of grounding: the response had to use the menu metadata, not just general coffee knowledge.
 
-The browser session provides conversation continuity during the active session; it is not durable long-term memory.
+## Deployment connected the application to cloud engineering
 
-## 4. Cloud Run changes the engineering context
+Cloud Run made the wider system visible. The Python files alone were not enough; the correct Google Cloud services, build process, runtime identity, IAM permissions, environment configuration, and deployment command all had to align.
 
-Local application code becomes a service with a runtime identity, build process, environment configuration, API dependencies, network endpoint, and operational lifecycle.
+Using a dedicated `barista-agent-sa` service account also connected the GenAI work back to the cloud-security principles I already care about: the workload should have an explicit identity and only the access it needs for its job.
 
-The deployment therefore has to answer more than "does the Python file run?"
+## Firestore Vector Search was the strongest extension
 
-- Is the correct project selected?
-- Are the required APIs enabled?
-- Can the runtime identity call the model service?
-- Does the application start on the port Cloud Run provides?
-- Does the deployed service behave like the working application?
+After the core lab was working, I continued with Firestore Vector Search to understand how retrieval changes when the menu becomes a live database instead of a local file.
 
-## 5. Least privilege is visible in the architecture
+I generated embeddings for the menu, stored them with the Firestore documents, created the vector index, and changed `get_menu()` so the customer's text is embedded and matched against the catalog using nearest-neighbor search.
 
-The codelab uses a dedicated service account for the Cloud Run workload. That reinforces a simple security principle: **the agent's capability should not automatically become the project's capability**.
+The most satisfying verification was adding **Matcha Green Tea Latte** directly to Firestore. I did not change the original `menu.json`. After refreshing the app, the product appeared in the sidebar and the agent could retrieve it for a Matcha request.
 
-## 6. Test the rule, not the fluency
+That single test made the difference between static grounding and live vector-backed retrieval much easier to understand.
 
-A grounded agent should be challenged with cases that try to break its contract:
+## Security observations
 
-- ask for something the menu contains;
-- ask for something the menu does not contain;
-- introduce an allergen constraint;
-- verify the deployed service, not only the local application.
+A few controls stood out during the build:
 
-The negative test matters because a fluent invented answer can still violate the source-of-truth boundary.
+- the deployed service uses a dedicated runtime identity;
+- Vertex AI and Firestore access are granted through IAM roles rather than embedded credential files;
+- no API key is hardcoded in the source;
+- the menu/tool boundary constrains the recommendation task;
+- negative testing is necessary because a correct-looking response is not enough proof that the boundary works.
 
-## 7. A pattern I can carry into later tracks
+The project also showed me where a production version would need more work: authentication, abuse controls, safer user-facing error handling, structured observability, tighter retrieval evaluation, and more adversarial prompt testing.
 
-**Define the boundary → connect the tool/data source → deploy → test the boundary → preserve evidence.**
+## Key takeaways
 
-Track 2 extends that pattern into structured BigQuery data. Track 3 extends it into sandboxed execution and operational changes where human approval becomes more important.
+1. **Grounding needs evidence.** I trust the menu boundary more after testing an unavailable product than after simply reading the prompt instructions.
+2. **UI changes how an agent is understood.** The Streamlit interface made the same logic much easier to evaluate from a customer's point of view.
+3. **Cloud identity is part of the application.** Runtime permissions affect whether the deployed agent can actually use its model and data services.
+4. **Vector retrieval is easier to understand when data changes live.** The Matcha test made that architecture change visible immediately.
+5. **A useful agent is a system, not only a model call.** Data, tools, state, identity, deployment, testing, and the user experience all matter.
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+---
 
-[← Track 1](../README.md) · [Testing & Results →](./testing-and-results.md) · [Back to top](#top)
+[🧱 Implementation](./implementation.md) · [🧪 Testing & Results](./testing-and-results.md) · [☕ Track 1](../README.md) · [↑ Back to top](#top)
