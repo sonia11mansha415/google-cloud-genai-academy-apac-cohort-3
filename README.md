@@ -113,23 +113,83 @@ Track 1 made this practical: the deployed agent uses a dedicated runtime identit
 ## 🔁 Engineering Workflow
 
 ```mermaid
-flowchart LR
-    A[Understand] --> B[Build]
-    B --> C[Test]
-    C --> D[Deploy]
-    D --> E[Validate]
-    E --> F[Secure]
-    F --> G[Document]
-    G --> H[Improve]
+%%{init: {"theme":"base","themeVariables":{"fontSize":"23px"},"flowchart":{"curve":"basis","nodeSpacing":45,"rankSpacing":45}}}%%
 
-    classDef start fill:#0B57D0,stroke:#8AB4F8,color:#fff,stroke-width:2px;
-    classDef build fill:#063970,stroke:#00B8D9,color:#fff,stroke-width:2px;
-    classDef validate fill:#1B5E20,stroke:#34A853,color:#fff,stroke-width:2px;
-    classDef secure fill:#311B92,stroke:#7C4DFF,color:#fff,stroke-width:2px;
-    class A start;
-    class B,C,D build;
-    class E,G,H validate;
+flowchart TB
+
+    %% =====================================================
+    %% TOP ROW — BUILD LIFECYCLE
+    %% =====================================================
+    subgraph ROW1[" "]
+        direction LR
+
+        A["🧭 01 · Understand"]
+        B["🏗️ 02 · Build"]
+        C["🧪 03 · Test"]
+        D["🚀 04 · Deploy"]
+
+        A ==> B ==> C ==> D
+    end
+
+
+    %% =====================================================
+    %% BOTTOM ROW — ASSURE + IMPROVE
+    %% =====================================================
+    subgraph ROW2[" "]
+        direction LR
+
+        E["✅ 05 · Validate"]
+        F["🔐 06 · Secure"]
+        G["📝 07 · Document"]
+        H["📈 08 · Improve"]
+
+        E ==> F ==> G ==> H
+    end
+
+
+    %% Keep both horizontal rows
+    ROW1 ==> ROW2
+
+
+    %% =====================================================
+    %% PREMIUM COLOR PALETTE
+    %% =====================================================
+    classDef understand fill:#172554,stroke:#38BDF8,stroke-width:4px,color:#F8FAFC,font-size:23px,font-weight:bold;
+    classDef build fill:#083344,stroke:#22D3EE,stroke-width:4px,color:#F8FAFC,font-size:23px,font-weight:bold;
+    classDef test fill:#312E81,stroke:#818CF8,stroke-width:4px,color:#F8FAFC,font-size:23px,font-weight:bold;
+    classDef deploy fill:#581C87,stroke:#D946EF,stroke-width:4px,color:#F8FAFC,font-size:23px,font-weight:bold;
+
+    classDef validate fill:#14532D,stroke:#4ADE80,stroke-width:4px,color:#F8FAFC,font-size:23px,font-weight:bold;
+    classDef secure fill:#134E4A,stroke:#2DD4BF,stroke-width:4px,color:#F8FAFC,font-size:23px,font-weight:bold;
+    classDef document fill:#713F12,stroke:#FBBF24,stroke-width:4px,color:#F8FAFC,font-size:23px,font-weight:bold;
+    classDef improve fill:#7C2D12,stroke:#FB923C,stroke-width:4px,color:#F8FAFC,font-size:23px,font-weight:bold;
+
+
+    %% =====================================================
+    %% APPLY COLORS
+    %% =====================================================
+    class A understand;
+    class B build;
+    class C test;
+    class D deploy;
+
+    class E validate;
     class F secure;
+    class G document;
+    class H improve;
+
+
+    %% =====================================================
+    %% CLEAN ROWS
+    %% =====================================================
+    style ROW1 fill:none,stroke:none
+    style ROW2 fill:none,stroke:none
+
+
+    %% =====================================================
+    %% PREMIUM CONNECTORS
+    %% =====================================================
+    linkStyle default stroke:#CBD5E1,stroke-width:4px;
 ```
 
 > **Architecture → Implementation → Validation → Evidence → Lessons**
