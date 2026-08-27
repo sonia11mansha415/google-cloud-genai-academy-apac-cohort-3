@@ -15,6 +15,4 @@ This repository documents my hands-on work from **Google Cloud Gen AI Academy AP
 
 The codelabs provide the learning path. This portfolio records my implementation, architecture, deployment, testing, security observations, evidence, and lessons learned.
 
-Source-file notices from official samples should be preserved where applicable.
-
-[Back to repository home](./README.md) · [Back to top](#top)
+[Back to repository home](./README.md) 
