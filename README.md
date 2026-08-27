@@ -4,12 +4,14 @@
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2900&pause=850&color=4285F4&center=true&vCenter=true&repeat=true&width=1050&height=92&lines=Track%201%20%E2%80%A2%20RAG%20%2B%20Firestore%20Vector%20Search%20%E2%86%92%20Complete;Track%202%20%E2%80%A2%20Gemini%20%2B%20BigQuery%20MCP%20%E2%86%92%20Data%20Intelligence;Track%203%20%E2%80%A2%20Productivity%20Agent%20%E2%86%92%20Controlled%20Operations;Build%20%E2%86%92%20Test%20%E2%86%92%20Deploy%20%E2%86%92%20Validate%20%E2%86%92%20Secure%20%E2%86%92%20Document" alt="Cohort 3 engineering journey" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2900&pause=850&color=4285F4&center=true&vCenter=true&repeat=true&width=1050&height=92&lines=Track%201%20%E2%80%A2%20RAG%20%2B%20Firestore%20Vector%20Search%20%E2%86%92%20Complete;Track%202%20%E2%80%A2%20Gemini%20%2B%20BigQuery%20MCP%20%E2%86%92%20Complete;Track%203%20%E2%80%A2%20Productivity%20Agent%20%E2%86%92%20Controlled%20Operations;Build%20%E2%86%92%20Test%20%E2%86%92%20Deploy%20%E2%86%92%20Validate%20%E2%86%92%20Secure%20%E2%86%92%20Document" alt="Cohort 3 engineering journey" />
 
 ![Google Cloud](https://img.shields.io/badge/Google%20Cloud-GenAI%20Academy-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
 ![Cohort](https://img.shields.io/badge/APAC-Cohort%203-7C4DFF?style=for-the-badge)
 ![Workshops](https://img.shields.io/badge/Workshops-3%2F3%20Complete-34A853?style=for-the-badge)
 ![Track 1](https://img.shields.io/badge/Track%201-Complete-34A853?style=for-the-badge)
+![Track 2](https://img.shields.io/badge/Track%202-Complete-34A853?style=for-the-badge)
+![Progress](https://img.shields.io/badge/Tracks-2%2F3%20Complete-00B8D9?style=for-the-badge)
 ![Security](https://img.shields.io/badge/Lens-Security%20First-00B8D9?style=for-the-badge)
 
 <br/>
@@ -49,7 +51,8 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 | Track 1 — RAG + ADK + Cloud Run | ✅ Complete | Customer-facing grounded agent |
 | Track 1 Quiz | ✅ **10 / 10** | Customer-Facing AI Agent assessment |
 | Track 1 — Firestore Vector Search | ✅ Complete | Vector-backed retrieval extension |
-| Track 2 — Gemini + BigQuery MCP | ⏳ Queued | Data-connected agent |
+| Track 2 — Gemini + BigQuery MCP | ✅ Complete | Data-connected agent |
+| Track 2 Quiz | ✅ **10 / 10** | Data Agent assessment |
 | Track 3 — Productivity Agent | ⏳ Queued | Sandboxed operational agent |
 | Meet the Builders | ✅ Submitted | Community milestone |
 | Ideathon | 🔐 Separate repository | Secure Personal Gemini Journal |
@@ -69,8 +72,8 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 </td>
 <td width="33%" valign="top">
 <h3>📊 Track 2 — Data Agent</h3>
-<p><strong>Status:</strong> ⏳ Queued</p>
-<p>Connect a Gemini-powered ADK agent to BigQuery through the managed MCP server so it can inspect structured data, execute read-oriented analysis, and reason from query results.</p>
+<p><strong>Status:</strong> ✅ Complete</p>
+<p>Built and deployed a Gemini-powered ADK data agent that inspects NYC Citi Bike data through BigQuery MCP, executes read-only SQL, and turns the results into business recommendations.</p>
 <p><code>ADK</code> <code>Gemini</code> <code>BigQuery</code> <code>MCP</code> <code>Cloud Run</code></p>
 <p><a href="./02-track-2-gemini-bigquery-mcp/"><strong>Open Track 2 →</strong></a></p>
 </td>
@@ -106,7 +109,7 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 | **Where do secrets live?** | Keep credentials and private configuration out of source control. |
 | **How do I know it worked?** | Validate behavior with functional, negative, and deployment tests rather than relying on a success message alone. |
 
-Track 1 made this practical: the deployed agent uses a dedicated runtime identity, retrieves catalog data through a controlled tool, and was tested with both valid and out-of-menu customer requests.
+Track 1 made workload identity and grounding boundaries practical. Track 2 added another control model: ADC-authenticated access to a narrow BigQuery MCP toolset, schema-first reasoning, and read-only SQL for analytical work.
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
@@ -196,24 +199,36 @@ flowchart TB
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
-## 🧾 Track 1 Evidence Highlights
+## 🧾 Evidence Highlights
 
 <table>
 <tr>
 <td width="50%" valign="top">
-<strong>Grounded customer recommendation</strong><br/><br/>
+<strong>Track 1 — Grounded recommendation</strong><br/><br/>
 <img src="./01-track-1-rag-adk-cloud-run/evidence/images/01-grounded-recommendation.png" width="100%" alt="Track 1 grounded recommendation" />
-<br/><em>A natural-language preference was matched to valid menu items.</em>
+<br/><em>A natural-language customer preference was matched to valid menu items.</em>
 </td>
 <td width="50%" valign="top">
-<strong>Firestore Vector Search</strong><br/><br/>
+<strong>Track 1 — Firestore Vector Search</strong><br/><br/>
 <img src="./01-track-1-rag-adk-cloud-run/evidence/images/04-firestore-vector-search.png" width="100%" alt="Track 1 Firestore Vector Search" />
-<br/><em>A new Matcha product added directly to Firestore became visible and retrievable by the agent.</em>
+<br/><em>A product added directly to Firestore became visible and retrievable through the vector-backed agent.</em>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<strong>Track 2 — BigQuery MCP trace</strong><br/><br/>
+<img src="./02-track-2-gemini-bigquery-mcp/evidence/images/02-mcp-tool-trace.png" width="100%" alt="Track 2 BigQuery MCP tool trace" />
+<br/><em>The deployed event chain shows table inspection and read-only SQL tool calls.</em>
+</td>
+<td width="50%" valign="top">
+<strong>Track 2 — Data-backed recommendation</strong><br/><br/>
+<img src="./02-track-2-gemini-bigquery-mcp/evidence/images/03-deployed-three-station-result.png" width="100%" alt="Track 2 final deployed recommendation" />
+<br/><em>The final agent returned three Citi Bike locations backed by trip-volume and morning-commuter analysis.</em>
 </td>
 </tr>
 </table>
 
-[Open the full Track 1 evidence and test record →](./01-track-1-rag-adk-cloud-run/)
+[Open Track 1 →](./01-track-1-rag-adk-cloud-run/) · [Open Track 2 →](./02-track-2-gemini-bigquery-mcp/)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
@@ -223,7 +238,7 @@ flowchart TB
 |---|---|
 | [`00-academy-overview/`](./00-academy-overview/) | Cohort scope, current progress, official track links, and Ideathon boundary |
 | [`01-track-1-rag-adk-cloud-run/`](./01-track-1-rag-adk-cloud-run/) | Completed Track 1 case study, source, implementation, tests, evidence, and engineering notes |
-| [`02-track-2-gemini-bigquery-mcp/`](./02-track-2-gemini-bigquery-mcp/) | Track 2 mission, target architecture, and security focus |
+| [`02-track-2-gemini-bigquery-mcp/`](./02-track-2-gemini-bigquery-mcp/) | Completed Track 2 data-agent case study, source, tests, evidence, troubleshooting, and engineering notes |
 | [`03-track-3-productivity-agent/`](./03-track-3-productivity-agent/) | Track 3 mission, target architecture, and human-control model |
 | [`ATTRIBUTION.md`](./ATTRIBUTION.md) | Official codelab sources and attribution |
 | [`assets/`](./assets/) | Academy architecture and social-preview artwork |
@@ -232,23 +247,24 @@ flowchart TB
 
 ## 🧠 Engineering Areas
 
-### Demonstrated in Track 1
+### Demonstrated across Tracks 1–2
 
 | Area | Hands-on evidence |
 |---|---|
-| 🤖 **AI Agent Engineering** | ADK `LlmAgent`, tool use, instructions, and deployed agent workflow |
-| 🧩 **Grounding & RAG** | Menu-only recommendations, negative catalog test, and metadata-aware filtering |
-| 💬 **Conversational UI** | Streamlit chat experience with visible product catalog |
-| ☁️ **Cloud-Native Deployment** | Cloud Run source deployment and build workflow |
-| 🔐 **Workload Identity & IAM** | Dedicated service identity with Vertex AI and Firestore access |
-| 🧠 **Embeddings & Vector Search** | `text-embedding-005`, Firestore vector index, semantic nearest-neighbor retrieval |
-| 🧪 **Validation** | Positive, negative, allergen-aware, deployment, and dynamic-data tests |
+| 🤖 **AI Agent Engineering** | ADK `LlmAgent`, Gemini model configuration, tool use, instructions, and deployed agent workflows |
+| 🧩 **Grounding & RAG** | Menu-only recommendations, negative catalog testing, and Firestore vector retrieval in Track 1 |
+| 📊 **BigQuery Data Analysis** | Public Citi Bike tables, schema inspection, SQL-backed trip analysis, and business recommendations in Track 2 |
+| 🔌 **Model Context Protocol** | Managed BigQuery MCP with visible table/schema/read-only SQL tool calls |
+| 🔐 **Identity & Tool Boundaries** | Dedicated runtime identity in Track 1; ADC-authenticated managed MCP access and read-only SQL in Track 2 |
+| ☁️ **Cloud-Native Deployment** | Cloud Run deployments for both completed agent builds |
+| 🧠 **Embeddings & Vector Search** | `text-embedding-005`, Firestore vector index, and semantic nearest-neighbor retrieval |
+| 🛠️ **Runtime Troubleshooting** | Cloud Run logs, SSE/non-SSE isolation, model-location diagnosis, retry/backoff, and tool-loop refinement |
+| 🧪 **Validation** | Positive/negative RAG tests, data-tool traces, deployment proof, and observed business results |
 
-### Next tracks
+### Next track
 
 | Area | Planned track |
 |---|---|
-| 📊 **BigQuery + MCP data agents** | Track 2 |
 | ⚙️ **Sandboxed operational agents** | Track 3 |
 | ✅ **Human-controlled data updates** | Track 3 |
 

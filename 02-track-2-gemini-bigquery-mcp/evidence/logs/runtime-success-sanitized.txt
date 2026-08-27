@@ -1,0 +1,25 @@
+TRACK 2 — SANITIZED SUCCESSFUL RUNTIME EXCERPT
+
+Final deployed run after model-location correction and reliability changes:
+
+POST /run_sse -> HTTP 200
+POST https://bigquery.googleapis.com/mcp -> HTTP 200
+POST .../projects/<PROJECT_ID>/locations/global/publishers/google/models/gemini-3.6-flash:generateContent -> HTTP 200
+POST https://bigquery.googleapis.com/mcp -> HTTP 200
+POST .../projects/<PROJECT_ID>/locations/global/publishers/google/models/gemini-3.6-flash:generateContent -> HTTP 200
+POST https://bigquery.googleapis.com/mcp -> HTTP 200
+POST .../projects/<PROJECT_ID>/locations/global/publishers/google/models/gemini-3.6-flash:generateContent -> HTTP 200
+
+Observed successful tool flow in the ADK trace:
+  list_table_ids
+  get_table_info
+  execute_sql_readonly
+
+Final result:
+  Pershing Square North (Grand Central Terminal)
+  E 17 St & Broadway (Union Square)
+  8 Ave & W 31 St (Penn Station Area)
+
+The final answer used trip-volume and morning-commuter analysis from the NYC Citi Bike dataset.
+
+Identifiers and live endpoint values are replaced with placeholders in this public excerpt.

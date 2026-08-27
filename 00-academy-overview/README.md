@@ -27,7 +27,8 @@ My goal is to understand the full path from **agent design → data/tool connect
 | Track 1 codelab | ✅ Complete |
 | Track 1 Firestore Vector Search | ✅ Complete |
 | Track 1 Quiz | ✅ **10 / 10** |
-| Track 2 codelab + MCQ | ⏳ Queued |
+| Track 2 codelab | ✅ Complete |
+| Track 2 Quiz | ✅ **10 / 10** |
 | Track 3 codelab + MCQ | ⏳ Queued |
 | Ideathon | 🔐 Separate repository |
 
@@ -38,7 +39,7 @@ My goal is to understand the full path from **agent design → data/tool connect
 | Track | Engineering problem | Core technologies | Status | Official codelab |
 |---|---|---|---|---|
 | **1 — Customer-facing AI agent** | Ground an AI Barista in controlled menu data, deploy it, then extend retrieval with Firestore Vector Search | ADK, Gemini, RAG, Streamlit, Cloud Run, Firestore | ✅ Complete | [Open](https://codelabs.developers.google.com/codelabs/cloud-run/build-streamlit-rag-agent-google-adk-cloud-run) |
-| **2 — Data-connected AI agent** | Let an agent inspect and reason from BigQuery through managed MCP tools | ADK, Gemini, BigQuery, MCP, Cloud Run | ⏳ Queued | [Open](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-adk-gemini-bq-mcp) |
+| **2 — Data-connected AI agent** | Let an agent inspect and reason from BigQuery through managed MCP tools | ADK, Gemini, BigQuery, MCP, Cloud Run | ✅ Complete | [Open](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-adk-gemini-bq-mcp) |
 | **3 — Personal productivity agent** | Analyze business data, execute code in a sandbox, and gate operational updates behind human approval | ADK, Cloud Run, Sandboxes, Google Sheets, WebSockets | ⏳ Queued | [Open](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-personal-agent-coffee-shop) |
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
@@ -60,6 +61,27 @@ Completed milestones include:
 - Track 1 assessment score: **10 / 10**.
 
 [Open the completed Track 1 case study →](../01-track-1-rag-adk-cloud-run/)
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
+## 📊 Track 2 Completion
+
+Track 2 connected a Gemini-powered ADK agent to the managed BigQuery MCP service and the public NYC Citi Bike dataset.
+
+Completed milestones include:
+
+- ADC-authenticated managed MCP access;
+- schema and table inspection before SQL;
+- read-only SQL execution through BigQuery MCP;
+- local ADK Web validation;
+- Cloud Run deployment;
+- model-location troubleshooting and correction;
+- Cloud Run log and non-SSE diagnosis of repeated 429 failures;
+- Gemini retry/backoff and reduced redundant tool loops;
+- final three-station coffee-truck recommendation;
+- Track 2 assessment score: **10 / 10**.
+
+[Open the completed Track 2 case study →](../02-track-2-gemini-bigquery-mcp/)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 

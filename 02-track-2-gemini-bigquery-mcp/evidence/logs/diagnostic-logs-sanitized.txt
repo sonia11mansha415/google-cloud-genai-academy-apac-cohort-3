@@ -1,0 +1,32 @@
+TRACK 2 — SANITIZED DIAGNOSTIC EXCERPT
+
+Cloud Run configuration observed during diagnosis:
+  containerConcurrency: 80
+  timeoutSeconds: 300
+  latestReadyRevisionName: <REVISION_ID>
+  url: <CLOUD_RUN_URL>
+
+Streaming request opened successfully:
+  POST /run_sse -> HTTP 200
+
+BigQuery MCP was reachable:
+  POST https://bigquery.googleapis.com/mcp -> HTTP 200
+
+Initial deployed Gemini location failure:
+  POST .../projects/<PROJECT_ID>/locations/us-central1/publishers/google/models/gemini-3.6-flash:generateContent -> HTTP 404
+  ClientError: 404 NOT_FOUND
+
+After deployment location correction:
+  POST .../projects/<PROJECT_ID>/locations/global/publishers/google/models/gemini-3.6-flash:generateContent -> HTTP 200
+
+The diagnosis then isolated a later Gemini failure:
+  429 RESOURCE_EXHAUSTED
+
+Interpretation used in the project documentation:
+- Cloud Run was serving requests.
+- BigQuery MCP requests were succeeding.
+- The browser network toast was not sufficient evidence of MCP failure.
+- A later model call could fail after the SSE request had already opened with HTTP 200.
+- A direct non-SSE /run diagnostic reproduced the 429 and ruled out the browser stream as the only cause.
+
+Identifiers and live endpoint values are replaced with placeholders in this public excerpt.
