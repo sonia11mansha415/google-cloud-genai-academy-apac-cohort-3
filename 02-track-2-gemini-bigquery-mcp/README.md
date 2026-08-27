@@ -15,8 +15,6 @@
 
 # 📊 Track 2 — Data Agent with Gemini + BigQuery MCP
 
-**Status: Queued.**
-
 Official codelab: **[Build and Deploy AI Agents with Gemini and BigQuery MCP server in Cloud Run](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-adk-gemini-bq-mcp)**
 
 ## 🎯 Engineering Mission
