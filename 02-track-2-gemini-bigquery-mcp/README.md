@@ -13,17 +13,21 @@
 
 </div>
 
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
 # 📊 Track 2 — Data Agent with Gemini + BigQuery MCP
 
-Official codelab: **[Build and Deploy AI Agents with Gemini and BigQuery MCP server in Cloud Run](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-adk-gemini-bq-mcp)**
+**Official codelab:** [Build and Deploy AI Agents with Gemini and BigQuery MCP server in Cloud Run](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-adk-gemini-bq-mcp)
 
 ## 🎯 Engineering Mission
 
-Build an ADK data agent that can inspect BigQuery structure, use the managed BigQuery MCP server, formulate read-only SQL, validate assumptions against real schema/data, and deploy the agent to Cloud Run.
+Build an ADK data agent that can inspect BigQuery structure, use the managed BigQuery MCP server, formulate read-oriented SQL, validate assumptions against real schema and data, and deploy the agent to Cloud Run.
 
-The business exercise asks the agent to reason over public Citi Bike data and identify promising locations for a small set of coffee trucks.
+The business exercise uses public Citi Bike data to reason about promising locations for a small set of coffee trucks.
 
-## 🏗️ Planned Architecture
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
+## 🏗️ Target Architecture
 
 ```mermaid
 flowchart LR
@@ -44,19 +48,17 @@ flowchart LR
     class M,B data;
 ```
 
-## 🔐 Security Lens to Validate During Execution
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
-One design choice already visible in the official codelab is worth preserving: the MCP toolset filters the agent to **read-oriented dataset inspection and read-only SQL execution**. That is a stronger default than giving an analytical agent mutation capability it does not need.
+## 🔐 Security Focus
 
-During execution I will specifically document:
+- read-oriented dataset inspection and SQL execution;
+- authenticated access to the managed BigQuery MCP service;
+- clear visibility into the tools exposed to the agent;
+- schema and value validation before relying on generated queries;
+- Cloud Run workload identity for the deployed agent.
 
-- how application credentials are used to reach the managed MCP service;
-- which MCP tools the agent can call;
-- how read-only SQL limits accidental data modification;
-- how the agent verifies schema and values before assuming relationships;
-- how the deployed Cloud Run agent is validated against real query results.
- 
----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 <div align="center">
 
