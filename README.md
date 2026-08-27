@@ -27,7 +27,9 @@
 
 </div>
 
----
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🎯 Why I Joined Cohort 3
 
@@ -37,7 +39,9 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 
 > ### **Build intelligent agents. Validate every layer. Secure by design.**
 
----
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🚦 Academy at a Glance
 
@@ -53,8 +57,9 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 | Meet the Builders | ✅ Submitted | Public cohort update only |
 | Ideathon | 🔐 Separate repository | Secure Personal Gemini Journal will be judge-focused and independent |
 
+</div>
 
----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🗂️ The Three Builds
 
@@ -84,7 +89,9 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 </tr>
 </table>
 
----
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🏗️ Academy Architecture
 
@@ -92,7 +99,9 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 <img src="./assets/branding/academy-agent-flow.svg" width="92%" alt="Three-track Google Cloud Gen AI Academy architecture" />
 </div>
 
----
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🛡️ My Security-First Engineering Lens
 
@@ -107,7 +116,9 @@ Security is not a decorative section at the end of this portfolio. It changes ho
 | **How do I know it worked?** | Preserve sanitized tests, deployment evidence, and failure/recovery notes instead of relying on a success message alone. |
 | **What should remain private?** | Keep participant dashboards, quiz content, billing material, internal IDs, and private user data outside the public repository. |
 
----
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🔁 Engineering Workflow
 
@@ -135,7 +146,9 @@ My documentation rule is equally simple:
 
 > **Architecture → Implementation → Validation → Evidence → Lessons**
 
----
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🧾 Evidence Standard
 
@@ -149,7 +162,9 @@ For each completed track, the strongest evidence will normally show:
 4. the agent-to-data/tool behavior that defines the track;
 5. one security or operational control worth highlighting.
 
----
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🧭 Repository Map
 
@@ -162,7 +177,9 @@ For each completed track, the strongest evidence will normally show:
 | [`ATTRIBUTION.md`](./ATTRIBUTION.md) | Official codelab sources, portfolio boundaries, and source-integrity/licensing notes |
 | [`assets/`](./assets/) | Repository-owned visual assets and social-preview artwork |
 
----
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🧠 Engineering Areas Demonstrated
 
@@ -177,7 +194,9 @@ For each completed track, the strongest evidence will normally show:
 | 🧪 **Validation** | Positive/negative functional tests, grounding checks, deployment verification, result documentation |
 | 📝 **Technical Documentation** | Architecture, implementation notes, testing, evidence, limitations, lessons, reproducibility |
 
----
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🌱 What I Am Building Toward
 
@@ -187,7 +206,9 @@ My existing cloud-security background taught me to think about identity, data bo
 
 The next challenge is the Cohort 3 Ideathon, where I will build the **Secure Personal Gemini Journal** in a separate public repository so the judge-facing project can stay focused on its own requirements, security architecture, tests, source code, and demo evidence.
 
----
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 🌐 Cohort Update
 
@@ -195,7 +216,9 @@ I also completed the **Meet the Builders** submission and shared my Cohort 3 / I
 
 **LinkedIn:** https://lnkd.in/p/g43pkrGc
 
----
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 ## 👩‍💻 About Me
 
@@ -205,20 +228,18 @@ Cloud Security · Cybersecurity · DevSecOps · Automation · Secure GenAI
 - GitHub: https://github.com/sonia11mansha415
 - LinkedIn: https://www.linkedin.com/in/sonia11mansha415
 
----
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
 <div align="center">
-
+![Views](https://komarev.com/ghpvc/?username=sonia11mansha415&label=Profile+Views&color=00f5ff&style=flat-square)
 <img src="https://img.shields.io/github/repo-size/sonia11mansha415/google-cloud-genai-academy-apac-cohort-3?style=for-the-badge&color=4285F4" alt="Repository size" />
 <img src="https://img.shields.io/github/last-commit/sonia11mansha415/google-cloud-genai-academy-apac-cohort-3?style=for-the-badge&color=7C4DFF" alt="Last commit" />
-<img src="https://img.shields.io/github/stars/sonia11mansha415/google-cloud-genai-academy-apac-cohort-3?style=for-the-badge&color=34A853" alt="Stars" />
-<img src="https://img.shields.io/github/forks/sonia11mansha415/google-cloud-genai-academy-apac-cohort-3?style=for-the-badge&color=00B8D9" alt="Forks" />
-
-<br/><br/>
 
 ### **From codelab to cloud — understand it, build it, prove it.**
 
-<sub>Google Cloud Gen AI Academy APAC · Cohort 3 · Personal learning portfolio by Sonia Mansha</sub>
+<sub>Google Cloud Gen AI Academy APAC · Cohort 3 · Personal learning portfolio of Sonia Mansha</sub>
 
 <br/><br/>
 
