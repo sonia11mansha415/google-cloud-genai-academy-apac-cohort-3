@@ -105,7 +105,7 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 
 ## 🛡️ My Security-First Engineering Lens
 
-Security is not a decorative section at the end of this portfolio. It changes how I interpret each build.
+Security is something... that changes how I interpret each build.
 
 | Engineering question | How I apply it |
 |---|---|
@@ -152,7 +152,7 @@ My documentation rule is equally simple:
 
 ## 🧾 Evidence Standard
 
-I keep evidence curated rather than exhaustive. A public screenshot should answer a technical question.
+I keep evidence curated. A public screenshot should answer a technical question.
 
 For each completed track, the strongest evidence will normally show:
 
