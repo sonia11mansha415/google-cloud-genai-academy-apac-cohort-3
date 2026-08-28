@@ -87,7 +87,7 @@ The final deployed version retained the codelab architecture and added two relia
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
-## 🏗️ Final Architecture
+## 🏗️ Architecture
 
 ```mermaid
 %%{init: {"themeVariables": {"fontSize": "24px"}, "flowchart": {"nodeSpacing": 45, "rankSpacing": 55}}}%%
