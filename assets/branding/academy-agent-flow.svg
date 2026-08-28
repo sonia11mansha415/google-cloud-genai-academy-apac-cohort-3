@@ -6,9 +6,17 @@
   <linearGradient id="g3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00B8D9"/><stop offset="1" stop-color="#34A853"/></linearGradient>
   <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.35"/></filter>
 </defs>
+
 <rect width="1500" height="700" rx="34" fill="url(#bg)"/>
-<text x="750" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#ffffff">GOOGLE CLOUD GEN AI ACADEMY — THREE-TRACK ENGINEERING MAP</text>
-<text x="750" y="106" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#AECBFA">Sonia Mansha · all three technical tracks complete</text>
+
+<text x="750" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#ffffff">
+  GOOGLE CLOUD GEN AI ACADEMY — THREE-TRACK ENGINEERING MAP
+</text>
+
+<text x="750" y="106" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#AECBFA">
+  Sonia Mansha · all three technical tracks complete
+</text>
+
 <rect x="580" y="140" width="340" height="72" rx="20" fill="#111E34" stroke="#8AB4F8" stroke-width="2" filter="url(#shadow)"/>
 <text x="750" y="172" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#fff">COHORT 3</text>
 <text x="750" y="199" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#AECBFA">Accelerate AI with Cloud Run</text>
@@ -45,7 +53,14 @@
 <line x1="1240" y1="490" x2="1240" y2="530" stroke="#34A853" stroke-width="3"/>
 <line x1="260" y1="530" x2="1240" y2="530" stroke="#51647E" stroke-width="2"/>
 <line x1="750" y1="530" x2="750" y2="560" stroke="#8AB4F8" stroke-width="3"/>
+
 <rect x="300" y="560" width="900" height="105" rx="22" fill="#111E34" stroke="#34A853" stroke-width="2"/>
-<text x="750" y="596" text-anchor="middle" font-family="Arial, sans-serif" font-size="20.5" font-weight="700" fill="#fff">GROUNDED ANSWERS → DATA-BACKED DECISIONS → HUMAN-APPROVED ACTIONS</text>
-<text x="750" y="633" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#A7F3D0">Cloud Run · test · validate · secure · document</text>
+
+<text x="750" y="596" text-anchor="middle" font-family="Arial, sans-serif" font-size="20.5" font-weight="700" fill="#fff">
+  GROUNDED ANSWERS → DATA-BACKED DECISIONS → HUMAN-APPROVED ACTIONS
+</text>
+
+<text x="750" y="634" text-anchor="middle" font-family="Arial, sans-serif" font-size="19.5" font-weight="500" fill="#A7F3D0">
+  Cloud Run · test · validate · secure · document
+</text>
 </svg>
