@@ -4,14 +4,16 @@
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2900&pause=850&color=4285F4&center=true&vCenter=true&repeat=true&width=1050&height=92&lines=Track%201%20%E2%80%A2%20RAG%20%2B%20Firestore%20Vector%20Search%20%E2%86%92%20Complete;Track%202%20%E2%80%A2%20Gemini%20%2B%20BigQuery%20MCP%20%E2%86%92%20Complete;Track%203%20%E2%80%A2%20Productivity%20Agent%20%E2%86%92%20Controlled%20Operations;Build%20%E2%86%92%20Test%20%E2%86%92%20Deploy%20%E2%86%92%20Validate%20%E2%86%92%20Secure%20%E2%86%92%20Document" alt="Cohort 3 engineering journey" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2900&pause=850&color=4285F4&center=true&vCenter=true&repeat=true&width=1050&height=92&lines=Track%201%20%E2%80%A2%20RAG%20%2B%20Firestore%20Vector%20Search%20%E2%86%92%20Complete;Track%202%20%E2%80%A2%20Gemini%20%2B%20BigQuery%20MCP%20%E2%86%92%20Complete;Track%203%20%E2%80%A2%20Sandboxed%20Productivity%20Agent%20%E2%86%92%20Complete;Ground%20%E2%86%92%20Analyze%20%E2%86%92%20Act%20with%20Approval" alt="Cohort 3 engineering journey" />
 
 ![Google Cloud](https://img.shields.io/badge/Google%20Cloud-GenAI%20Academy-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
 ![Cohort](https://img.shields.io/badge/APAC-Cohort%203-7C4DFF?style=for-the-badge)
 ![Workshops](https://img.shields.io/badge/Workshops-3%2F3%20Complete-34A853?style=for-the-badge)
 ![Track 1](https://img.shields.io/badge/Track%201-Complete-34A853?style=for-the-badge)
 ![Track 2](https://img.shields.io/badge/Track%202-Complete-34A853?style=for-the-badge)
-![Progress](https://img.shields.io/badge/Tracks-2%2F3%20Complete-00B8D9?style=for-the-badge)
+![Track 3](https://img.shields.io/badge/Track%203-Complete-34A853?style=for-the-badge)
+![Tracks](https://img.shields.io/badge/Tracks-3%2F3%20Complete-34A853?style=for-the-badge)
+![Quizzes](https://img.shields.io/badge/Academy%20Quizzes-4%2F4%20%C2%B7%2010%2F10-7C4DFF?style=for-the-badge)
 ![Security](https://img.shields.io/badge/Lens-Security%20First-00B8D9?style=for-the-badge)
 
 <br/>
@@ -46,14 +48,16 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 | Milestone | Status | Focus |
 |---|---|---|
 | Cohort registration | ✅ Complete | Program participation |
-| Workshops | ✅ 3 / 3 complete | Track learning context |
+| Workshops | ✅ **3 / 3 complete** | Track learning context |
 | Mandatory Academy Quiz | ✅ **10 / 10** | Accelerate AI with Cloud Run APAC |
 | Track 1 — RAG + ADK + Cloud Run | ✅ Complete | Customer-facing grounded agent |
 | Track 1 Quiz | ✅ **10 / 10** | Customer-Facing AI Agent assessment |
 | Track 1 — Firestore Vector Search | ✅ Complete | Vector-backed retrieval extension |
-| Track 2 — Gemini + BigQuery MCP | ✅ Complete | Data-connected agent |
-| Track 2 Quiz | ✅ **10 / 10** | Data Agent assessment |
-| Track 3 — Productivity Agent | ⏳ Queued | Sandboxed operational agent |
+| Track 2 — Gemini + BigQuery MCP | ✅ Complete | Data-connected decision agent |
+| Track 2 Quiz | ✅ **10 / 10** | Strategic Decisions assessment |
+| Track 3 — Productivity Agent | ✅ Complete | Sandboxed operational agent |
+| Track 3 Quiz | ✅ **10 / 10** | Daily Operations assessment |
+| Track codelab submissions | ✅ **3 / 3 submitted** | Academy completion evidence |
 | Meet the Builders | ✅ Submitted | Community milestone |
 | Ideathon | 🔐 Separate repository | Secure Personal Gemini Journal |
 
@@ -79,9 +83,9 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 </td>
 <td width="33%" valign="top">
 <h3>⚙️ Track 3 — Productivity Agent</h3>
-<p><strong>Status:</strong> ⏳ Queued</p>
-<p>Build a personal operations assistant that analyzes business data, executes code in a sandbox, and requests explicit human approval before updating operational data.</p>
-<p><code>ADK</code> <code>Cloud Run</code> <code>Sandboxes</code> <code>Sheets</code> <code>WebSockets</code></p>
+<p><strong>Status:</strong> ✅ Complete</p>
+<p>Built and deployed a coffee-shop productivity agent that reads historical POS data, performs sandboxed analysis, recommends staffing and inventory actions, and writes approved tasks to Google Sheets only after explicit human confirmation.</p>
+<p><code>ADK</code> <code>Gemini</code> <code>FastAPI</code> <code>WebSockets</code> <code>Cloud Run Sandbox</code> <code>Sheets</code></p>
 <p><a href="./03-track-3-productivity-agent/"><strong>Open Track 3 →</strong></a></p>
 </td>
 </tr>
@@ -105,11 +109,25 @@ My background is in **Cloud Security, Cybersecurity, DevSecOps, and automation**
 |---|---|
 | **What identity is the workload using?** | Prefer dedicated service identities and avoid broader access than the runtime needs. |
 | **What data can the agent reach?** | Treat tool and data connections as explicit trust boundaries. |
-| **Can the model change data?** | Prefer read-oriented access for analysis and keep operational changes deliberate and reviewable. |
-| **Where do secrets live?** | Keep credentials and private configuration out of source control. |
-| **How do I know it worked?** | Validate behavior with functional, negative, and deployment tests rather than relying on a success message alone. |
+| **Can the model change data?** | Separate analysis from mutation and make high-impact actions deliberate and reviewable. |
+| **Where do secrets live?** | Keep credentials and private runtime configuration out of source control. |
+| **How do I know it worked?** | Validate behavior with positive, negative, deployment, tool, and operational tests. |
 
-Track 1 made workload identity and grounding boundaries practical. Track 2 added another control model: ADC-authenticated access to a narrow BigQuery MCP toolset, schema-first reasoning, and read-only SQL for analytical work.
+Track 1 made **grounding and workload identity** concrete. Track 2 added **ADC-authenticated read-only analytical tools** and schema-first data reasoning. Track 3 introduced **sandboxed execution, separate read/write capabilities, and a human approval gate before operational changes**.
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
+## 🧠 What the Three Tracks Changed for Me
+
+| Track | Core lesson |
+|---|---|
+| **Track 1** | A useful agent needs a controlled source of truth. |
+| **Track 2** | A data agent should inspect and use bounded tools instead of guessing. |
+| **Track 3** | An agent that can act needs stronger control boundaries than an agent that only answers. |
+
+Across the three tracks, the agent progressed from **retrieving**, to **reasoning**, to **acting**. My security perspective progressed with it—from controlling information access, to constraining tool access, to requiring human authorization before operational change.
+
+> ### **Ground the knowledge. Query the data. Control the action.**
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
@@ -203,32 +221,25 @@ flowchart TB
 
 <table>
 <tr>
-<td width="50%" valign="top">
-<strong>Track 1 — Grounded recommendation</strong><br/><br/>
-<img src="./01-track-1-rag-adk-cloud-run/evidence/images/01-grounded-recommendation.png" width="100%" alt="Track 1 grounded recommendation" />
-<br/><em>A natural-language customer preference was matched to valid menu items.</em>
-</td>
-<td width="50%" valign="top">
-<strong>Track 1 — Firestore Vector Search</strong><br/><br/>
+<td width="33%" valign="top">
+<strong>Track 1 — Vector-backed retrieval</strong><br/><br/>
 <img src="./01-track-1-rag-adk-cloud-run/evidence/images/04-firestore-vector-search.png" width="100%" alt="Track 1 Firestore Vector Search" />
 <br/><em>A product added directly to Firestore became visible and retrievable through the vector-backed agent.</em>
 </td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-<strong>Track 2 — BigQuery MCP trace</strong><br/><br/>
-<img src="./02-track-2-gemini-bigquery-mcp/evidence/images/02-mcp-tool-trace.png" width="100%" alt="Track 2 BigQuery MCP tool trace" />
-<br/><em>The deployed event chain shows table inspection and read-only SQL tool calls.</em>
-</td>
-<td width="50%" valign="top">
-<strong>Track 2 — Data-backed recommendation</strong><br/><br/>
+<td width="33%" valign="top">
+<strong>Track 2 — Data-backed decision</strong><br/><br/>
 <img src="./02-track-2-gemini-bigquery-mcp/evidence/images/03-deployed-three-station-result.png" width="100%" alt="Track 2 final deployed recommendation" />
-<br/><em>The final agent returned three Citi Bike locations backed by trip-volume and morning-commuter analysis.</em>
+<br/><em>The deployed data agent returned three Citi Bike locations backed by read-only BigQuery analysis.</em>
+</td>
+<td width="33%" valign="top">
+<strong>Track 3 — Approval before action</strong><br/><br/>
+<img src="./03-track-3-productivity-agent/evidence/images/01-agent-before-approval.png" width="100%" alt="Track 3 human approval boundary" />
+<br/><em>The productivity agent completed its analysis and stopped for explicit approval before writing to the operational Sheet.</em>
 </td>
 </tr>
 </table>
 
-[Open Track 1 →](./01-track-1-rag-adk-cloud-run/) · [Open Track 2 →](./02-track-2-gemini-bigquery-mcp/)
+[Open Track 1 →](./01-track-1-rag-adk-cloud-run/) · [Open Track 2 →](./02-track-2-gemini-bigquery-mcp/) · [Open Track 3 →](./03-track-3-productivity-agent/)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
@@ -236,46 +247,40 @@ flowchart TB
 
 | Area | What you will find |
 |---|---|
-| [`00-academy-overview/`](./00-academy-overview/) | Cohort scope, current progress, official track links, and Ideathon boundary |
+| [`00-academy-overview/`](./00-academy-overview/) | Final Academy scope, completion summary, official track links, and Ideathon boundary |
 | [`01-track-1-rag-adk-cloud-run/`](./01-track-1-rag-adk-cloud-run/) | Completed Track 1 case study, source, implementation, tests, evidence, and engineering notes |
 | [`02-track-2-gemini-bigquery-mcp/`](./02-track-2-gemini-bigquery-mcp/) | Completed Track 2 data-agent case study, source, tests, evidence, troubleshooting, and engineering notes |
-| [`03-track-3-productivity-agent/`](./03-track-3-productivity-agent/) | Track 3 mission, target architecture, and human-control model |
+| [`03-track-3-productivity-agent/`](./03-track-3-productivity-agent/) | Completed Track 3 productivity-agent case study, source, data, tests, evidence, troubleshooting, and engineering notes |
 | [`ATTRIBUTION.md`](./ATTRIBUTION.md) | Official codelab sources and attribution |
 | [`assets/`](./assets/) | Academy architecture and social-preview artwork |
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
-## 🧠 Engineering Areas
-
-### Demonstrated across Tracks 1–2
+## 🧠 Engineering Areas Demonstrated
 
 | Area | Hands-on evidence |
 |---|---|
-| 🤖 **AI Agent Engineering** | ADK `LlmAgent`, Gemini model configuration, tool use, instructions, and deployed agent workflows |
-| 🧩 **Grounding & RAG** | Menu-only recommendations, negative catalog testing, and Firestore vector retrieval in Track 1 |
-| 📊 **BigQuery Data Analysis** | Public Citi Bike tables, schema inspection, SQL-backed trip analysis, and business recommendations in Track 2 |
-| 🔌 **Model Context Protocol** | Managed BigQuery MCP with visible table/schema/read-only SQL tool calls |
-| 🔐 **Identity & Tool Boundaries** | Dedicated runtime identity in Track 1; ADC-authenticated managed MCP access and read-only SQL in Track 2 |
-| ☁️ **Cloud-Native Deployment** | Cloud Run deployments for both completed agent builds |
-| 🧠 **Embeddings & Vector Search** | `text-embedding-005`, Firestore vector index, and semantic nearest-neighbor retrieval |
-| 🛠️ **Runtime Troubleshooting** | Cloud Run logs, SSE/non-SSE isolation, model-location diagnosis, retry/backoff, and tool-loop refinement |
-| 🧪 **Validation** | Positive/negative RAG tests, data-tool traces, deployment proof, and observed business results |
-
-### Next track
-
-| Area | Planned track |
-|---|---|
-| ⚙️ **Sandboxed operational agents** | Track 3 |
-| ✅ **Human-controlled data updates** | Track 3 |
+| 🤖 **AI Agent Engineering** | ADK `LlmAgent`, Gemini configuration, tools, system instructions, sessions, and deployed agent workflows across all three tracks |
+| 🧩 **Grounding & RAG** | Menu-only recommendations, negative catalog testing, embeddings, and Firestore Vector Search in Track 1 |
+| 📊 **BigQuery Data Analysis** | Citi Bike schema inspection, read-only SQL, MCP tool traces, and business recommendations in Track 2 |
+| 🔌 **Model Context Protocol** | Managed BigQuery MCP with bounded table/schema/read-only SQL tools |
+| 🛡️ **Sandboxed Execution** | Cloud Run Sandbox-compatible Python/shell analysis in Track 3 |
+| 📄 **Operational Data Integration** | Google Sheets reads plus approved `TODO-2026` writes in Track 3 |
+| ⚖️ **Human Approval Controls** | Recommendations separated from operational mutation before an explicit approval event in Track 3 |
+| 🔐 **Identity & Tool Boundaries** | Dedicated workload identities, ADC-authenticated tools, runtime configuration, read/write separation, and no embedded service-account key files |
+| ☁️ **Cloud-Native Deployment** | Cloud Run deployments for all three completed agent builds |
+| 🌐 **Application Interfaces** | Streamlit in Track 1, ADK Web in Track 2, and FastAPI + WebSockets in Track 3 |
+| 🛠️ **Runtime Troubleshooting** | Cloud Run logs, streaming/model isolation, data-path diagnosis, direct backend probes, and controlled fixes |
+| 🧪 **Validation** | Grounding/negative tests, MCP/tool traces, deployment proof, approval gating, backend data checks, and operational write verification |
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
-## 🌐 Community & Next Build
+## 🌐 Community & Next Phase
 
 **Meet the Builders:** ✅ Submitted  
 [View my Cohort 3 LinkedIn update](https://lnkd.in/p/g43pkrGc)
 
-The Cohort 3 Ideathon — **Secure Personal Gemini Journal** — is a separate build and will have its own repository.
+The three Academy tracks, their workshops, assessments, and codelab submissions are complete. The next phase is the Cohort 3 Ideathon — **Secure Personal Gemini Journal** — which continues in a separate repository.
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
