@@ -10,7 +10,7 @@
 ![Sheets](https://img.shields.io/badge/Google%20Sheets-Operational%20Data-0F9D58?style=for-the-badge&logo=googlesheets&logoColor=white)
 ![Quiz](https://img.shields.io/badge/Track%203%20Quiz-10%2F10-34A853?style=for-the-badge)
 
-[← 📊 Track 2](../02-track-2-gemini-bigquery-mcp/) · [🏠 Academy Home](../README.md) · [🧭 Overview](../00-academy-overview/) · **⚙️ Track 3**
+[← ☕ Track 1](../01-track-1-rag-adk-cloud-run/) · [← 📊 Track 2](../02-track-2-gemini-bigquery-mcp/) · [🏠 Academy Home](../README.md) · [🧭 Overview](../00-academy-overview/) · **⚙️ Track 3**
 
 </div>
 
