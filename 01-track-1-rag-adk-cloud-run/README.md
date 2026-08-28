@@ -11,7 +11,7 @@
 ![Vector Search](https://img.shields.io/badge/Firestore-Vector%20Search-34A853?style=for-the-badge)
 ![Quiz](https://img.shields.io/badge/Track%201%20Quiz-10%2F10-34A853?style=for-the-badge)
 
-[🏠 Academy Home](../README.md) · [🧭 Overview](../00-academy-overview/) · **☕ Track 1** · [📊 Track 2 →](../02-track-2-gemini-bigquery-mcp/)
+[🏠 Academy Home](../README.md) · [🧭 Overview](../00-academy-overview/) · **☕ Track 1** · [📊 Track 2 →](../02-track-2-gemini-bigquery-mcp/) · [⚙️ Track 3 →](../03-track-3-productivity-agent/)
 
 </div>
 
