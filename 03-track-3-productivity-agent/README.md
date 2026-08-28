@@ -103,87 +103,212 @@ This final stage changed the project from an analytical assistant into a control
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
-## 🏗️ Final Architecture
+## 🏗️ Architecture
 
 ```mermaid
-%%{init: {"themeVariables": {"fontSize": "22px"}, "flowchart": {"nodeSpacing": 42, "rankSpacing": 52}}}%%
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "background": "#03050c",
+    "primaryTextColor": "#ffffff",
+    "lineColor": "#f8fafc",
+    "fontSize": "32px"
+  },
+  "flowchart": {
+    "nodeSpacing": 58,
+    "rankSpacing": 70,
+    "curve": "basis",
+    "padding": 20
+  }
+}}%%
+
 flowchart LR
 
+    %% =====================================================
+    %% USER EXPERIENCE
+    %% =====================================================
     subgraph ACCESS[" "]
         direction TB
+
         AH["🌐 USER EXPERIENCE"]
+
         U["👤 Coffee Shop Manager"]
+
         UI["☕ FastAPI Chat UI<br/>WebSocket /ws"]
-        U ==> UI
+
+        AH ==> U ==> UI
     end
 
+
+    %% =====================================================
+    %% AGENT RUNTIME
+    %% =====================================================
     subgraph AGENT[" "]
         direction TB
+
         BH["🤖 AGENT RUNTIME"]
+
         CR["☁️ Cloud Run"]
+
         A["🧠 Google ADK LlmAgent"]
+
         G["✨ Gemini / Vertex AI"]
-        CR ==> A
+
+        BH ==> CR ==> A
         A <==> G
     end
 
+
+    %% =====================================================
+    %% CONTROLLED TOOLS
+    %% =====================================================
     subgraph TOOLS[" "]
         direction TB
+
         CH["🧰 CONTROLLED TOOLS"]
+
         R["📖 Read Sheet"]
+
         S["🛡️ Sandbox Command"]
+
         W["📝 Create / Update Sheet"]
+
+        CH ==> R
+        CH ==> S
+        CH ==> W
     end
 
+
+    %% =====================================================
+    %% OPERATIONAL DATA
+    %% =====================================================
     subgraph DATA[" "]
         direction TB
+
         DH["📊 OPERATIONAL DATA"]
-        P[("POS-2025")]
-        T[("TODO-2026")]
+
+        P[("🗃️ POS-2025")]
+
+        T[("✅ TODO-2026")]
+
         SB["📦 Cloud Run Sandbox<br/>Python + shell"]
+
+        DH ==> P
+        DH ==> SB
+        DH ==> T
     end
 
+
+    %% =====================================================
+    %% ACTION BOUNDARY
+    %% =====================================================
     subgraph APPROVAL[" "]
         direction TB
+
         EH["⚖️ ACTION BOUNDARY"]
+
         REC["💡 Recommendations"]
+
         H["✅ Explicit Human Approval"]
-        REC ==> H
+
+        EH ==> REC ==> H
     end
 
+
+    %% =====================================================
+    %% CROSS-FLOW
+    %% =====================================================
     UI <==> A
+
     A ==> R
     A ==> S
+    A ==> REC
+
     R <==> P
     S <==> SB
-    A ==> REC
+
     H ==> W
     W ==> T
 
-    classDef header fill:#111827,stroke:#f8fafc,stroke-width:3px,color:#ffffff,font-size:24px;
-    classDef user fill:#172554,stroke:#60a5fa,stroke-width:4px,color:#ffffff,font-size:22px;
-    classDef app fill:#0c4a6e,stroke:#38bdf8,stroke-width:4px,color:#ffffff,font-size:22px;
-    classDef agent fill:#312e81,stroke:#a78bfa,stroke-width:4px,color:#ffffff,font-size:22px;
-    classDef model fill:#581c87,stroke:#e879f9,stroke-width:4px,color:#ffffff,font-size:22px;
-    classDef safe fill:#14532d,stroke:#4ade80,stroke-width:4px,color:#ffffff,font-size:22px;
-    classDef data fill:#063970,stroke:#00b8d9,stroke-width:4px,color:#ffffff,font-size:22px;
-    classDef approval fill:#713f12,stroke:#fbbf24,stroke-width:4px,color:#ffffff,font-size:22px;
 
+    %% =====================================================
+    %% NEON HEADERS
+    %% =====================================================
+    classDef header fill:#0a1022,stroke:#f8fafc,stroke-width:5px,color:#ffffff,font-size:36px,font-weight:bold;
+
+
+    %% =====================================================
+    %% USER EXPERIENCE — ELECTRIC BLUE
+    %% =====================================================
+    classDef user fill:#172554,stroke:#60a5fa,stroke-width:6px,color:#ffffff,font-size:32px,font-weight:bold;
+
+    classDef app fill:#075985,stroke:#22d3ee,stroke-width:6px,color:#ffffff,font-size:32px,font-weight:bold;
+
+
+    %% =====================================================
+    %% AGENT RUNTIME — NEON PURPLE / MAGENTA
+    %% =====================================================
+    classDef agent fill:#4c1d95,stroke:#c084fc,stroke-width:6px,color:#ffffff,font-size:32px,font-weight:bold;
+
+    classDef model fill:#701a75,stroke:#f0abfc,stroke-width:6px,color:#ffffff,font-size:32px,font-weight:bold;
+
+
+    %% =====================================================
+    %% CONTROLLED TOOLS — NEON GREEN
+    %% =====================================================
+    classDef safe fill:#14532d,stroke:#4ade80,stroke-width:6px,color:#ffffff,font-size:32px,font-weight:bold;
+
+
+    %% =====================================================
+    %% OPERATIONAL DATA — CYAN / BLUE
+    %% =====================================================
+    classDef data fill:#0c4a6e,stroke:#38bdf8,stroke-width:6px,color:#ffffff,font-size:32px,font-weight:bold;
+
+
+    %% =====================================================
+    %% HUMAN APPROVAL — GOLD / AMBER
+    %% =====================================================
+    classDef approval fill:#78350f,stroke:#fbbf24,stroke-width:6px,color:#ffffff,font-size:32px,font-weight:bold;
+
+
+    %% =====================================================
+    %% APPLY CLASSES
+    %% =====================================================
     class AH,BH,CH,DH,EH header;
+
     class U user;
+
     class UI,CR app;
+
     class A agent;
+
     class G model;
+
     class R,S,W,SB safe;
+
     class P,T data;
+
     class REC,H approval;
 
-    style ACCESS fill:#0d1117,stroke:#334155,stroke-width:2px
-    style AGENT fill:#0d1117,stroke:#7c3aed,stroke-width:2px
-    style TOOLS fill:#0d1117,stroke:#22c55e,stroke-width:2px
-    style DATA fill:#0d1117,stroke:#0284c7,stroke-width:2px
-    style APPROVAL fill:#0d1117,stroke:#f59e0b,stroke-width:2px
-    linkStyle default stroke:#dbe4ee,stroke-width:4px;
+
+    %% =====================================================
+    %% GLOSSY NEON CONTAINERS
+    %% =====================================================
+    style ACCESS fill:#050b18,stroke:#3b82f6,stroke-width:4px
+
+    style AGENT fill:#0d071c,stroke:#a855f7,stroke-width:4px
+
+    style TOOLS fill:#05130b,stroke:#22c55e,stroke-width:4px
+
+    style DATA fill:#05101a,stroke:#0ea5e9,stroke-width:4px
+
+    style APPROVAL fill:#160d03,stroke:#f59e0b,stroke-width:4px
+
+
+    %% =====================================================
+    %% THICK NEON CONNECTORS
+    %% =====================================================
+    linkStyle default stroke:#f8fafc,stroke-width:5px;
 ```
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
