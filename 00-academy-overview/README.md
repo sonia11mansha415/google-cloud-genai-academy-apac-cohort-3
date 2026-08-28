@@ -1,6 +1,6 @@
 <a id="top"></a>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B57D0,100:7C4DFF&height=145&section=header&text=Academy%20Overview&fontSize=34&fontColor=ffffff&animation=fadeIn&desc=Cohort%203%20scope%20%E2%80%A2%20progress%20%E2%80%A2%20technical%20tracks&descSize=15&descAlignY=68" width="100%" alt="Academy overview" />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B57D0,100:7C4DFF&height=145&section=header&text=Academy%20Overview&fontSize=34&fontColor=ffffff&animation=fadeIn&desc=Cohort%203%20%E2%80%A2%20three%20tracks%20complete%20%E2%80%A2%20hands-on%20GenAI%20engineering&descSize=15&descAlignY=68" width="100%" alt="Academy overview" />
 
 <div align="center">
 
@@ -12,16 +12,16 @@
 
 # 🧭 Academy Overview
 
-I am completing all three **Google Cloud Gen AI Academy APAC — Cohort 3** tracks and their required assessments, then moving into the Cohort 3 Ideathon with a separate repository.
+I completed all three **Google Cloud Gen AI Academy APAC — Cohort 3** technical tracks, their workshops, codelabs, codelab submissions, and required assessments.
 
-My goal is to understand the full path from **agent design → data/tool connection → cloud deployment → validation → secure operation**.
+Across the three builds, I moved from **grounded retrieval**, to **data-connected reasoning**, to **human-approved operational action**.
 
-## 🚦 Progress
+## 🚦 Final Academy Progress
 
 | Area | Status |
 |---|---|
 | Registration | ✅ Complete |
-| Workshops | ✅ Track 1 · Track 2 · Track 3 complete |
+| Workshops | ✅ **3 / 3 complete** |
 | Meet the Builders | ✅ Submitted |
 | Mandatory Academy Quiz | ✅ **10 / 10** |
 | Track 1 codelab | ✅ Complete |
@@ -29,7 +29,9 @@ My goal is to understand the full path from **agent design → data/tool connect
 | Track 1 Quiz | ✅ **10 / 10** |
 | Track 2 codelab | ✅ Complete |
 | Track 2 Quiz | ✅ **10 / 10** |
-| Track 3 codelab + MCQ | ⏳ Queued |
+| Track 3 codelab | ✅ Complete |
+| Track 3 Quiz | ✅ **10 / 10** |
+| Track codelab submissions | ✅ **3 / 3 submitted** |
 | Ideathon | 🔐 Separate repository |
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
@@ -40,7 +42,7 @@ My goal is to understand the full path from **agent design → data/tool connect
 |---|---|---|---|---|
 | **1 — Customer-facing AI agent** | Ground an AI Barista in controlled menu data, deploy it, then extend retrieval with Firestore Vector Search | ADK, Gemini, RAG, Streamlit, Cloud Run, Firestore | ✅ Complete | [Open](https://codelabs.developers.google.com/codelabs/cloud-run/build-streamlit-rag-agent-google-adk-cloud-run) |
 | **2 — Data-connected AI agent** | Let an agent inspect and reason from BigQuery through managed MCP tools | ADK, Gemini, BigQuery, MCP, Cloud Run | ✅ Complete | [Open](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-adk-gemini-bq-mcp) |
-| **3 — Personal productivity agent** | Analyze business data, execute code in a sandbox, and gate operational updates behind human approval | ADK, Cloud Run, Sandboxes, Google Sheets, WebSockets | ⏳ Queued | [Open](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-personal-agent-coffee-shop) |
+| **3 — Productivity agent** | Analyze historical operations in a sandbox, recommend changes, and gate Sheet writes behind explicit human approval | ADK, Gemini, FastAPI, WebSockets, Cloud Run Sandbox, Google Sheets | ✅ Complete | [Open](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-personal-agent-coffee-shop) |
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
@@ -48,17 +50,15 @@ My goal is to understand the full path from **agent design → data/tool connect
 
 Track 1 progressed from local menu grounding to a deployed Cloud Run application and then to Firestore Vector Search.
 
-Completed milestones include:
+Key milestones:
 
 - ADK agent + Streamlit customer interface;
 - dedicated Cloud Run runtime identity;
-- grounded preference test;
-- out-of-menu negative test;
-- allergen-aware catalog test;
+- grounded preference, negative catalog, and allergen-aware tests;
 - Firestore menu seeding with embeddings;
-- Firestore vector index;
+- Firestore vector index and semantic retrieval;
 - dynamic Matcha item verification;
-- Track 1 assessment score: **10 / 10**.
+- Track 1 assessment: **10 / 10**.
 
 [Open the completed Track 1 case study →](../01-track-1-rag-adk-cloud-run/)
 
@@ -68,26 +68,58 @@ Completed milestones include:
 
 Track 2 connected a Gemini-powered ADK agent to the managed BigQuery MCP service and the public NYC Citi Bike dataset.
 
-Completed milestones include:
+Key milestones:
 
 - ADC-authenticated managed MCP access;
-- schema and table inspection before SQL;
-- read-only SQL execution through BigQuery MCP;
+- schema/table inspection before SQL;
+- read-only SQL execution;
 - local ADK Web validation;
 - Cloud Run deployment;
-- model-location troubleshooting and correction;
-- Cloud Run log and non-SSE diagnosis of repeated 429 failures;
-- Gemini retry/backoff and reduced redundant tool loops;
+- model-location, streaming, and resource-exhaustion troubleshooting;
+- Gemini retry/backoff and tighter tool-loop behavior;
 - final three-station coffee-truck recommendation;
-- Track 2 assessment score: **10 / 10**.
+- Track 2 assessment: **10 / 10**.
 
 [Open the completed Track 2 case study →](../02-track-2-gemini-bigquery-mcp/)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
 
+## ⚙️ Track 3 Completion
+
+Track 3 connected an operational AI agent to historical POS data, sandboxed analysis, and Google Sheets while preserving an explicit approval boundary before writes.
+
+Key milestones:
+
+- FastAPI + WebSocket conversational interface;
+- dedicated Cloud Run workload identity;
+- Google Sheets read/create/update tools;
+- Cloud Run Sandbox-compatible Python/shell analysis;
+- data-path troubleshooting through logs and direct `/chat` diagnostics;
+- historical `POS-2025` verification;
+- data-backed staffing and inventory recommendations;
+- explicit approval before the `TODO-2026` write;
+- final operational Sheet verification;
+- Track 3 assessment: **10 / 10**.
+
+[Open the completed Track 3 case study →](../03-track-3-productivity-agent/)
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
+## 🧠 Academy Progression
+
+| Track | What changed |
+|---|---|
+| **Track 1** | The agent learned from a controlled source of truth. |
+| **Track 2** | The agent inspected and queried bounded analytical tools. |
+| **Track 3** | The agent moved into operational action with an explicit human approval boundary. |
+
+> ### **Grounded answers → Data-backed decisions → Human-approved actions**
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="section divider" />
+
 ## 🔐 Ideathon
 
-The Cohort 3 Ideathon challenge — **Secure Personal Gemini Journal** — is a separate build and repository.
+The Cohort 3 Ideathon challenge — **Secure Personal Gemini Journal** — continues as a separate build and repository.
 
 [Open the official Ideathon codelab](https://codelabs.developers.google.com/codelabs/cloud-run/cloud-run-ai-challenge)
 
@@ -100,7 +132,7 @@ Public Cohort update: https://lnkd.in/p/g43pkrGc
 
 <div align="center">
 
-**Build intelligent agents. Validate every layer. Secure by design.**
+**Ground the knowledge. Query the data. Control the action.**
 
 [Back to repository home](../README.md) · [Back to top](#top)
 
