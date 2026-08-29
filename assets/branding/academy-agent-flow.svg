@@ -29,24 +29,24 @@
 
 <rect x="90" y="295" width="340" height="195" rx="26" fill="#0B2239" stroke="url(#g1)" stroke-width="3" filter="url(#shadow)"/>
 <text x="260" y="341" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#fff">TRACK 1</text>
-<text x="260" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#4DD0E1">Grounded RAG Agent</text>
-<text x="260" y="412" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#D7E7F7">ADK · Gemini · Firestore</text>
-<text x="260" y="441" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#D7E7F7">RAG + Vector Search</text>
-<text x="260" y="473" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#34A853">COMPLETE</text>
+<text x="260" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#4DD0E1">Grounded RAG Agent</text>
+<text x="260" y="412" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#D7E7F7">ADK · Gemini · Firestore</text>
+<text x="260" y="441" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#D7E7F7">RAG + Vector Search</text>
+<text x="260" y="473" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#34A853">COMPLETE</text>
 
 <rect x="580" y="295" width="340" height="195" rx="26" fill="#161B42" stroke="url(#g2)" stroke-width="3" filter="url(#shadow)"/>
 <text x="750" y="341" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#fff">TRACK 2</text>
-<text x="750" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#B39DDB">Gemini + BigQuery MCP</text>
-<text x="750" y="412" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#D7E7F7">ADK · managed MCP</text>
-<text x="750" y="441" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#D7E7F7">Read-only data reasoning</text>
-<text x="750" y="473" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#34A853">COMPLETE</text>
+<text x="750" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#B39DDB">Gemini + BigQuery MCP</text>
+<text x="750" y="412" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#D7E7F7">ADK · managed MCP</text>
+<text x="750" y="441" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#D7E7F7">Read-only data reasoning</text>
+<text x="750" y="473" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#34A853">COMPLETE</text>
 
 <rect x="1070" y="295" width="340" height="195" rx="26" fill="#0D2C28" stroke="url(#g3)" stroke-width="3" filter="url(#shadow)"/>
 <text x="1240" y="341" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#fff">TRACK 3</text>
-<text x="1240" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#81C995">Productivity Agent</text>
-<text x="1240" y="412" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#D7E7F7">Sandbox · Sheets · WebSockets</text>
-<text x="1240" y="441" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#D7E7F7">Human-approved actions</text>
-<text x="1240" y="473" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#34A853">COMPLETE</text>
+<text x="1240" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#81C995">Productivity Agent</text>
+<text x="1240" y="412" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#D7E7F7">Sandbox · Sheets · WebSockets</text>
+<text x="1240" y="441" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#D7E7F7">Human-approved actions</text>
+<text x="1240" y="473" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#34A853">COMPLETE</text>
 
 <line x1="260" y1="490" x2="260" y2="530" stroke="#00B8D9" stroke-width="3"/>
 <line x1="750" y1="490" x2="750" y2="530" stroke="#7C4DFF" stroke-width="3"/>
@@ -60,7 +60,7 @@
   GROUNDED ANSWERS → DATA-BACKED DECISIONS → HUMAN-APPROVED ACTIONS
 </text>
 
-<text x="750" y="634" text-anchor="middle" font-family="Arial, sans-serif" font-size="19.5" font-weight="500" fill="#A7F3D0">
+<text x="750" y="634" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="500" fill="#A7F3D0">
   Cloud Run · test · validate · secure · document
 </text>
 </svg>
